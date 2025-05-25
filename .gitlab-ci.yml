@@ -4,10 +4,10 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 pages:
+  stage: deploy
+  environment: production
   script:
-    - hugo
+  - hugo
   artifacts:
     paths:
-      - public
-  only:
-    - main  # デフォルトブランチ名が "main" の場合（"master" の場合は変更）
+    - public
