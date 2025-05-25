@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="https://unpkg.com/frappe-gantt/dist/frappe-gantt.css">
 		<!-- Custum CSS -->
 		{{ $style := resources.Get "css/styles.css" }}
-			{{ if $style = $style | css.PostCSS }}
+			{{ if $style }}
 				<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 			{{ end }}
 		<!-- Frappe Gantt JS -->
