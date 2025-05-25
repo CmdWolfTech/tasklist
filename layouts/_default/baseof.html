@@ -9,8 +9,10 @@
 		<!-- Frappe Gantt -->
 		<link rel="stylesheet" href="https://unpkg.com/frappe-gantt/dist/frappe-gantt.css">
 		<!-- Custum CSS -->
-		{{ $style := resources.Get "css/styles.css" | resources.PostCSS | resources.Minify | resources.Fingerprint }}
-		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+		{{ $style := resources.Get "css/styles.css" }}
+			{{ if $style = $style | css.PostCSS }}
+				<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+			{{ end }}
 		<!-- Frappe Gantt JS -->
 		<script src="https://unpkg.com/frappe-gantt/dist/frappe-gantt.min.js" defer></script>
         </head>
