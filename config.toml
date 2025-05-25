@@ -2,8 +2,6 @@ baseURL = "https://example.com/"
 languageCode = "ja"
 title = "sample"
 
-theme = ""
-
 [params]
   description = "sample"
   logo_text = "Logo_text"
@@ -28,4 +26,3 @@ theme = ""
     name = "otoiawase"
     url = "/#contact-seciton"
     weight = 3
-
