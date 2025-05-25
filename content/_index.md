@@ -1,7 +1,7 @@
 ---
-title: "Welcome to ProjectBorad"
+title: "Welcome to ProjectBoard"
 ---
 
 # Hello ProjectBoard
 
-[project List](/projects/)
+[Project List]({{< relref "/projects/" >}})
