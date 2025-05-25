@@ -1,6 +1,6 @@
 baseURL = "https://example.com/"
 languageCode = "ja"
-title = "sample"
+title = "ProjectBorad"
 
 [params]
   description = "sample"
