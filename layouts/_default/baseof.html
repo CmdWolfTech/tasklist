@@ -1,42 +1,47 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "ja" }}">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=deice-width, initial-scale=1">
-		<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-		<!-- Favicon -->
-		<link rel="icon" href="/favicon.ico">
-		<!-- Frappe Gantt -->
-		<link rel="stylesheet" href="https://unpkg.com/frappe-gantt/dist/frappe-gantt.css">
-		<!-- Custum CSS -->
-		{{ $style := resources.Get "css/styles.css" }}
-			{{ if $style }}
-				<link rel="stylesheet" href="{{ $style.RelPermalink }}">
-			{{ end }}
-		<!-- Frappe Gantt JS -->
-		<script src="https://unpkg.com/frappe-gantt/dist/frappe-gantt.min.js" defer></script>
-        </head>
-	<body>
-		<header class="site-header">
-			<div class="container header-inner">
-				<h1 class="logo"><a href="{{ .Site.BaseURL | relLangURL }}/projects/">ProjectBorad</a></h1>
-				<nav class="main-nav">
-					<ul>
-						<li><a href="{{ .Site.BaseURL | relLangURL }}/projects/">Projects</a></li>
-						<li><a href="{{ .Site.BaseURL | relLangURL }}/about/">Abount</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
+<html lang="{{ .Site.LanguageCode | default " ja" }}">
 
-		<main class="site-main container">
-			{{ block "main" . }}{{ end }}
-		</main>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 
-		<footer class="site-footer">
-			<div class="container">
-				<p>&copy; 2025 ProjectBoard. Made with</p>
-			</div>
-		</footer>
-	</body>
+	<!-- Favicon -->
+	<link rel="icon" href="{{ " favicon.ico" | relURL }}">
+
+	<!-- Frappe Gantt -->
+	<link rel="stylesheet" href="https://unpkg.com/frappe-gantt/dist/frappe-gantt.css">
+
+	<!-- Custom CSS（Hugoのリソースパイプライン対応） -->
+	{{ $style := resources.Get "css/styles.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+	<!-- Frappe Gantt JS -->
+	<script src="https://unpkg.com/frappe-gantt/dist/frappe-gantt.min.js" defer></script>
+</head>
+
+<body>
+	<header class="site-header">
+		<div class="container header-inner">
+			<h1 class="logo"><a href="{{ " /projects/" | relLangURL }}">ProjectBoard</a></h1>
+			<nav class="main-nav">
+				<ul>
+					<li><a href="{{ " /projects/" | relLangURL }}">Projects</a></li>
+					<li><a href="{{ " /about/" | relLangURL }}">About</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main class="site-main container">
+		{{ block "main" . }}{{ end }}
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<p>&copy; 2025 ProjectBoard. Made with</p>
+		</div>
+	</footer>
+</body>
+
 </html>
