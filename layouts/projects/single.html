@@ -1,0 +1,7 @@
+{{ define "main" }}
+<article class="project-detail">
+	<h2 class="project-title">{{ .Title }}</h2>
+	<p class="project-date">Start: {{ with .Date }}{{ .Format "2006-01-02" }}{{ end }}</p>
+	<div id="gantt-container">{{ .Content }}</div>
+</article>
+{{ end }}

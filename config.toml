@@ -1,0 +1,31 @@
+baseURL = "https://example.com/"
+languageCode = "ja"
+title = "sample"
+
+theme = ""
+
+[params]
+  description = "sample"
+  logo_text = "Logo_text"
+
+  [params.contact]
+    button_text = "otoiawase"
+    button_link = "/contact-form"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "features"
+    name = "watashi"
+    url = "/#features-section"
+    weight = 2
+  [[menu.main]]
+    identifier = "contact"
+    name = "otoiawase"
+    url = "/#contact-seciton"
+    weight = 3
+

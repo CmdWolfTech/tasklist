@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=deice-width, initial-scale=1">
+		<title>Projects | Project</title>
+		
+		<link rel="icon" href="/favicon.ico">
+		
+		<link rel="stylesheet" href="https://unpkg.com/frappe-gantt/dist/frappe-gantt.css">
+		
+		<link rel="stylesheet" href="/css/styles.css">
+		
+		<script src="https://unpkg.com/frappe-gantt/dist/frappe-gantt.min.js" defer></script>
+        </head>
+	<body>
+		<header class="site-header">
+			<div class="container header-inner">
+				<h1 class="logo"><a href="/projects/">ProjectBorad</a></h1>
+				<nav class="main-nav">
+					<ul>
+						<li><a href="/projects/">Projects</a></li>
+						<li><a href="/about/">Abount</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main class="site-main container">
+			
+<section class="projects-list">
+	<h2 class="section-title">projectList</h2>
+	<div class="card-grid">
+		
+		<a href="/projects/alpha-project/" class="card">
+			<div class="card-body">
+				<h3>Alpa Project</h3>
+				<p><p><strong>Aplpha</strong></p>
+<div id="gantt"></div>
+<script>
+	document.addEventsListener("DOMContentLoaded", function () {
+			const tasks = [{
+							id: "task-1",
+								name: "test",
+								start: "2025-05-21",
+								end: "2025-05-23",
+								progress: 100,
+								custiom_class: "status-completed priority-high"
+						}{
+							id: "task-2",
+								name: "test",
+								start: "2025-05-24",
+								end: "2025-05-26",
+								progress: 50,
+								custiom_class: "status-in-progress priority-midium"
+						}
+					];
+			new Gantt(
+					document.getElementById('gantt'),
+					tasks,
+					{ view_mode: 'Day', date_format: 'YYYY-MM-DD' }
+					);
+		});
+</script></p>
+			</div>
+		</a>
+		
+	</div>
+</section>
+
+		</main>
+
+		<footer class="site-footer">
+			<div class="container">
+				<p>&copy; 2025 ProjectBoard. Made with</p>
+			</div>
+		</footer>
+	</body>
+</html>
