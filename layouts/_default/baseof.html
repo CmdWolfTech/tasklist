@@ -12,9 +12,8 @@
 	<!-- Frappe Gantt -->
 	<link rel="stylesheet" href="https://unpkg.com/frappe-gantt/dist/frappe-gantt.css">
 
-	<!-- Custom CSS（Hugoのリソースパイプライン対応） -->
-	{{ $style := resources.Get "css/styles.css" | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+	<!-- Static CSS（static/ 配下にある場合） -->
+	<link rel="stylesheet" href="{{ " css/styles.css" | relURL }}">
 
 	<!-- Frappe Gantt JS -->
 	<script src="https://unpkg.com/frappe-gantt/dist/frappe-gantt.min.js" defer></script>
