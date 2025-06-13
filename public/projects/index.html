@@ -38,21 +38,21 @@
 				<p><p><strong>Aplpha</strong></p>
 <div id="gantt"></div>
 <script>
-	document.addEventsListener("DOMContentLoaded", function () {
+	document.addEventListener("DOMContentLoaded", function () {
 			const tasks = [{
 							id: "task-1",
 								name: "test",
 								start: "2025-05-21",
 								end: "2025-05-23",
 								progress: 100,
-								custiom_class: "status-completed priority-high"
+								custom_class: "status-completed priority-high"
 						}{
 							id: "task-2",
 								name: "test",
 								start: "2025-05-24",
 								end: "2025-05-26",
 								progress: 50,
-								custiom_class: "status-in-progress priority-midium"
+								custom_class: "status-in-progress priority-midium"
 						}
 					];
 			new Gantt(
