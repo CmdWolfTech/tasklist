@@ -6,7 +6,7 @@
 }
 
 body {
-	fontfamily: 'Noto Sans JP', sans-serif;
+        font-family: 'Noto Sans JP', sans-serif;
 	line-height: 1.6;
 	color: #333;
 	background-color: #f9f9f9;
@@ -131,7 +131,7 @@ body {
 	color: #777;
 }
 
-/* Frappe Gantt Custum */
+/* Frappe Gantt Custom */
 .status-not-started rect.bar { fill: #cccccc; }
 .status-in-progress rect.bar { fill: #f0ad4e; }
 .status-completed rect.bar { fill: #5cb85c; }
