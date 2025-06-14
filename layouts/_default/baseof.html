@@ -22,7 +22,7 @@
 <body>
 	<header class="site-header">
 		<div class="container header-inner">
-			<h1 class="logo"><a href="{{ "/" | relURL }}">ProjectBoard</a></h1>
+			<h1 class="logo"><a href="{{ "" | absURL }}">{{ .Site.Title }}</a></h1>
                 <nav class="main-nav">
                         <ul>
                                 {{ range .Site.Menus.main }}

@@ -7,7 +7,7 @@ title = "ProjectBoard"
   logo_text = "Logo_text"
 
   [params.contact]
-    button_text = "otoiawase"
+    button_text = "contact"
     button_link = "/contact-form"
 
 [menu]
@@ -18,11 +18,11 @@ title = "ProjectBoard"
     weight = 1
   [[menu.main]]
     identifier = "features"
-    name = "watashi"
+    name = "about"
     url = "/#features-section"
     weight = 2
   [[menu.main]]
     identifier = "contact"
-    name = "otoiawase"
+    name = "contact"
     url = "/#contact-section"
     weight = 3
