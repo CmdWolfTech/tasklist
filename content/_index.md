@@ -5,9 +5,9 @@ title: "Welcome to ProjectBoard"
 
 <section class="home-hero container">
 # Hello ProjectBoard
-
-[Project List]({{< relref "/projects/" >}})
 </section>
+
+{{< project-list >}}
 
 <section id="features-section" class="home-features">
 ## Features
