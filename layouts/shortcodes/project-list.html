@@ -2,10 +2,43 @@
     <h2 class="section-title">projectList</h2>
     <div class="card-grid">
         {{ range (site.GetPage "section" "projects").Pages }}
+        {{ $start := "" }}
+        {{ $end := "" }}
+        {{ $total := 0 }}
+        {{ $completed := 0 }}
+        {{ range .Pages }}
+            {{ $total = add $total 1 }}
+            {{ if .Params.start }}
+                {{ if not $start }}
+                    {{ $start = .Params.start }}
+                {{ else if lt (time .Params.start) (time $start) }}
+                    {{ $start = .Params.start }}
+                {{ end }}
+            {{ end }}
+            {{ if .Params.end }}
+                {{ if not $end }}
+                    {{ $end = .Params.end }}
+                {{ else if gt (time .Params.end) (time $end) }}
+                    {{ $end = .Params.end }}
+                {{ end }}
+            {{ end }}
+            {{ if eq .Params.status "comp" }}
+                {{ $completed = add $completed 1 }}
+            {{ end }}
+        {{ end }}
+        {{ $progress := 0.0 }}
+        {{ if gt $total 0 }}
+            {{ $progress = mul 100 (div (float $completed) (float $total)) }}
+        {{ end }}
         <a href="{{ .RelPermalink }}" class="card">
             <div class="card-body">
                 <h3>{{ .Title }}</h3>
                 <p>{{ .Summary }}</p>
+                <p class="project-dates">{{ $start }} - {{ $end }}</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: {{ printf "%.0f" $progress }}%"></div>
+                </div>
+                <p class="progress-label">{{ printf "%.0f" $progress }}%</p>
             </div>
         </a>
         {{ end }}

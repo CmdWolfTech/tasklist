@@ -94,8 +94,34 @@ body {
 }
 
 .card-body p {
-	font-size: 0.95rem;
-	color: #666;
+        font-size: 0.95rem;
+        color: #666;
+}
+
+.project-dates {
+        font-size: 0.8rem;
+        color: #888;
+        margin-top: 0.25rem;
+}
+
+.progress {
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        overflow: hidden;
+        height: 8px;
+        margin-top: 0.5rem;
+}
+
+.progress-bar {
+        height: 100%;
+        background-color: #5cb85c;
+}
+
+.progress-label {
+        font-size: 0.8rem;
+        text-align: right;
+        margin-top: 0.25rem;
+        color: #666;
 }
 
 /* Project detail */
