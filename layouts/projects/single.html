@@ -4,7 +4,7 @@
 {{ $days := add 1 (div (sub ($end.Unix) ($start.Unix)) 86400) }}
 <div class="card task-details" id="task-details">
   <div class="task-details-header">
-    <div class="task-details-title">{{ .Title }}</div>
+    <h1 class="task-details-title">{{ .Title }}</h1>
     <div class="task-details-meta">
       <span class="status status-{{ if eq .Params.status "comp" }}completed{{ else if eq .Params.status "go" }}in-progress{{ else }}not-started{{ end }}">
         {{ if eq .Params.status "comp" }}完了{{ else if eq .Params.status "go" }}進行中{{ else }}未着手{{ end }}
