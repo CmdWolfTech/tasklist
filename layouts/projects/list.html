@@ -1,15 +1,7 @@
 {{ define "main" }}
 <section class="projects-list">
-	<h2 class="section-title">projectList</h2>
-	<div class="card-grid">
-		{{ range .Pages }}
-		<a href="{{ .RelPermalink }}" class="card">
-			<div class="card-body">
-				<h3>{{ .Title }}</h3>
-				<p>{{ .Summary }}</p>
-			</div>
-		</a>
-		{{ end }}
-	</div>
+	<h2 class="section-title">{{ .Section | title }}</h2>
+	{{ partial "gantt.html" . }}
+	{{ partial "task-table.html" . }}
 </section>
 {{ end }}

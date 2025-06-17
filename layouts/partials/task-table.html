@@ -1,0 +1,26 @@
+{{ with .Pages }}
+<table class="task-table">
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Period</th>
+            <th>Status</th>
+            <th>Assignee</th>
+            <th>Priority</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range sort . "Params.start" }}
+        <tr>
+            <td><a href="{{ .RelPermalink }}">{{ .Params.title }}</a></td>
+            <td>{{ .Params.start }} - {{ .Params.end }}</td>
+            <td>{{ .Params.status }}</td>
+            <td>{{ .Params.assignee }}</td>
+            <td>{{ .Params.priority }}</td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
+{{ else }}
+<p>No tasks available.</p>
+{{ end }}
