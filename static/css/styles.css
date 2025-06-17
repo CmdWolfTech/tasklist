@@ -251,3 +251,15 @@ body {
 .page-content {
         padding: 2em 0;
 }
+
+/* Task Counts */
+.task-counts {
+        display: flex;
+        gap: 0.5em;
+        font-size: 0.85rem;
+        margin: 0.5rem 0;
+        color: #666;
+}
+.task-counts span {
+        padding-right: 0.5em;
+}
