@@ -1,6 +1,7 @@
 baseURL = "https://cmdwolftech.gitlab.io/tasklist/"
 languageCode = "ja"
 title = "ProjectBoard"
+buildFuture = true
 
 [params]
   description = "sample"
