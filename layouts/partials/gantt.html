@@ -15,7 +15,7 @@
         }{{ if lt (add $i 1) (len $.Pages) }}, {{ end }}
     {{- end }}
       ];
-  new Gantt(document.getElementById('{{ $gid }}'), tasks, { view_mode: 'Day', date_format: 'YYYY-MM-DD' });
+  new Gantt('#{{ $gid }}', tasks, { view_mode: 'Day', date_format: 'YYYY-MM-DD' });
     });
 </script>
 {{ else }}
@@ -35,7 +35,7 @@
         }{{ if lt (add $i 1) (len $all) }}, {{ end }}
       {{- end }}
     ];
-  new Gantt(document.getElementById('gantt-global'), tasks, { view_mode: 'Day', date_format: 'YYYY-MM-DD' });
+  new Gantt('#gantt-global', tasks, { view_mode: 'Day', date_format: 'YYYY-MM-DD' });
     });
 </script>
 {{ end }}
