@@ -24,6 +24,7 @@
             <div class="card-body">
                 <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
                 <p class="project-dates">{{ $start }} - {{ $end }}</p>
+                {{ partial "task-count.html" . }}
                 {{ partial "gantt.html" . }}
             </div>
         </div>
