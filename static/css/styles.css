@@ -140,12 +140,15 @@ body {
 	margin-bottom: 1.5rem;
 }
 
-#gantt-container {
-	overflow-x: auto;
-	background-color: #ffffff;
-	padding: 1rem;
-	border: 1px solid #eaeaea;
-	border-radius: 8px;
+#gantt-container,
+#gantt-global,
+[id^="gantt-"] {
+        overflow-x: auto;
+        background-color: #ffffff;
+        padding: 1rem;
+        border: 1px solid #eaeaea;
+        border-radius: 8px;
+        margin-bottom: 1rem;
 }
 
 /* Footer */
