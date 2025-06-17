@@ -1,1 +1,18 @@
-{{ partial "gantt.html" .Page }}
+{{/*
+  Display a simple progress bar showing the percentage of completed
+  tasks for the current project. This shortcode is used from
+  `project-list.html` and should not rely on the more complex partial
+  that renders a Gantt chart.
+*/}}
+
+{{ $total := len .Pages }}
+{{ $completed := len (where .Pages "Params.status" "completed") }}
+{{ $progress := 0 }}
+{{ if gt $total 0 }}
+  {{ $progress = div (mul $completed 100) $total }}
+{{ end }}
+
+<div class="progress">
+  <div class="progress-bar" style="width: {{ $progress }}%;"></div>
+</div>
+<div class="progress-label">{{ $progress }}%</div>
