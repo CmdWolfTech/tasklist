@@ -6,11 +6,12 @@
   <div class="task-details-header">
     <h1 class="task-details-title">{{ .Title }}</h1>
     <div class="task-details-meta">
-      <span class="status status-{{ if eq .Params.status "comp" }}completed{{ else if eq .Params.status "go" }}in-progress{{ else }}not-started{{ end }}">
-        {{ if eq .Params.status "comp" }}完了{{ else if eq .Params.status "go" }}進行中{{ else }}未着手{{ end }}
+      <span class="status status-{{ if eq .Params.status " completed" }}completed{{ else if eq .Params.status "in-progress"
+        }}in-progress{{ else }}not-started{{ end }}">
+        {{ if eq .Params.status "completed" }}完了{{ else if eq .Params.status "in-progress" }}進行中{{ else }}未着手{{ end }}
       </span>
       <span class="priority priority-{{ lower .Params.priority }}">
-        {{ if eq .Params.priority "High" }}高{{ else if eq .Params.priority "Midium" }}中{{ else }}低{{ end }}
+        {{ if eq .Params.priority "High" }}高{{ else if eq .Params.priority "Medium" }}中{{ else }}低{{ end }}
       </span>
     </div>
   </div>

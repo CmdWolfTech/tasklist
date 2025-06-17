@@ -2,11 +2,11 @@
 <table class="task-table">
     <thead>
         <tr>
-            <th>Task</th>
-            <th>Period</th>
-            <th>Status</th>
-            <th>Assignee</th>
-            <th>Priority</th>
+            <th>タスク</th>
+            <th>期間</th>
+            <th>ステータス</th>
+            <th>担当者</th>
+            <th>優先度</th>
         </tr>
     </thead>
     <tbody>
@@ -14,9 +14,18 @@
         <tr>
             <td><a href="{{ .RelPermalink }}">{{ .Params.title }}</a></td>
             <td>{{ .Params.start }} - {{ .Params.end }}</td>
-            <td>{{ .Params.status }}</td>
+            <td>
+                <span class="status status-{{ if eq .Params.status "completed" }}completed{{ else if eq .Params.status "in-progress" }}in-progress{{
+                    else }}not-started{{ end }}">
+                    {{ if eq .Params.status "completed" }}完了{{ else if eq .Params.status "in-progress" }}進行中{{ else }}未着手{{ end }}
+                </span>
+            </td>
             <td>{{ .Params.assignee }}</td>
-            <td>{{ .Params.priority }}</td>
+            <td>
+                <span class="priority priority-{{ lower .Params.priority }}">
+                    {{ if eq .Params.priority "High" }}高{{ else if eq .Params.priority "Medium" }}中{{ else }}低{{ end }}
+                </span>
+            </td>
         </tr>
         {{ end }}
     </tbody>
