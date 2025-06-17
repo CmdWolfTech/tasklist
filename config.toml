@@ -19,10 +19,10 @@ title = "ProjectBoard"
   [[menu.main]]
     identifier = "about"
     name = "about"
-    url = "/about/"
+    url = "about/"
     weight = 2
   [[menu.main]]
     identifier = "contact"
     name = "contact"
-    url = "/contact/"
+    url = "contact/"
     weight = 3
