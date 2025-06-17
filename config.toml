@@ -17,12 +17,12 @@ title = "ProjectBoard"
     url = "/"
     weight = 1
   [[menu.main]]
-    identifier = "features"
+    identifier = "about"
     name = "about"
-    url = "/#features-section"
+    url = "about/"
     weight = 2
   [[menu.main]]
     identifier = "contact"
     name = "contact"
-    url = "/#contact-section"
+    url = "contact/"
     weight = 3
