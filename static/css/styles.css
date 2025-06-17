@@ -263,3 +263,84 @@ body {
 .task-counts span {
         padding-right: 0.5em;
 }
+
+/* Task detail page */
+.task-details {
+        padding: 1.5rem;
+        margin-top: 2rem;
+}
+
+.task-details-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+}
+
+.task-details-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+}
+
+.task-details-meta span {
+        display: inline-block;
+        margin-left: 0.5rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+}
+
+.status-not-started {
+        background-color: #cccccc;
+        color: #fff;
+}
+.status-in-progress {
+        background-color: #f0ad4e;
+        color: #fff;
+}
+.status-completed {
+        background-color: #5cb85c;
+        color: #fff;
+}
+
+.priority-high {
+        background-color: #d9534f;
+        color: #fff;
+}
+.priority-medium {
+        background-color: #f0ad4e;
+        color: #fff;
+}
+.priority-low {
+        background-color: #5bc0de;
+        color: #fff;
+}
+
+.task-details-info {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+}
+
+.task-details-item {
+        flex: 1 1 150px;
+        background-color: #f7f7f7;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        padding: 0.75rem;
+}
+
+.task-details-label {
+        font-size: 0.8rem;
+        color: #888;
+        margin-bottom: 0.25rem;
+}
+
+.task-details-value {
+        font-weight: bold;
+}
+
+.task-description {
+        margin-top: 1rem;
+}
