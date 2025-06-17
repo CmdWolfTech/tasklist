@@ -4,10 +4,7 @@
         {{ range (site.GetPage "section" "projects").Pages }}
         {{ $start := "" }}
         {{ $end := "" }}
-        {{ $total := 0 }}
-        {{ $completed := 0 }}
         {{ range .Pages }}
-            {{ $total = add $total 1 }}
             {{ if .Params.start }}
                 {{ if not $start }}
                     {{ $start = .Params.start }}
@@ -22,25 +19,14 @@
                     {{ $end = .Params.end }}
                 {{ end }}
             {{ end }}
-            {{ if eq .Params.status "comp" }}
-                {{ $completed = add $completed 1 }}
-            {{ end }}
         {{ end }}
-        {{ $progress := 0.0 }}
-        {{ if gt $total 0 }}
-            {{ $progress = mul 100 (div (float $completed) (float $total)) }}
-        {{ end }}
-        <a href="{{ .RelPermalink }}" class="card">
+        <div class="card">
             <div class="card-body">
-                <h3>{{ .Title }}</h3>
-                <p>{{ .Summary }}</p>
+                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
                 <p class="project-dates">{{ $start }} - {{ $end }}</p>
-                <div class="progress">
-                    <div class="progress-bar" style="width: {{ printf "%.0f" $progress }}%"></div>
-                </div>
-                <p class="progress-label">{{ printf "%.0f" $progress }}%</p>
+                {{ partial "gantt.html" . }}
             </div>
-        </a>
+        </div>
         {{ end }}
     </div>
 </section>
