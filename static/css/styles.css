@@ -228,3 +228,21 @@ body {
         align-self: flex-start;
         padding: 0.5em 1em;
 }
+
+/* Task Table */
+.task-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1.5rem;
+}
+
+.task-table th,
+.task-table td {
+        padding: 0.5em;
+        border: 1px solid #e0e0e0;
+        text-align: left;
+}
+
+.task-table th {
+        background-color: #f0f0f0;
+}
