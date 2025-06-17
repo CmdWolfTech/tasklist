@@ -143,12 +143,39 @@ body {
 #gantt-container,
 #gantt-global,
 [id^="gantt-"] {
-        overflow-x: auto;
-        background-color: #ffffff;
-        padding: 1rem;
-        border: 1px solid #eaeaea;
-        border-radius: 8px;
-        margin-bottom: 1rem;
+        position: relative !important;
+        overflow-x: auto !important;
+        /* 横スクロールを有効化 */
+        overflow-y: hidden !important;
+        white-space: nowrap !important;
+        /* 折り返さない */
+        min-height: 400px !important;
+        display: block !important;
+}
+
+[id^="gantt-"] .gantt {
+        position: static !important;
+        min-width: 1200px !important;
+        /* 最小幅の強制 */
+        width: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+}
+
+.bar-label {
+        fill: #000 !important;
+        font-size: 12px !important;
+        font-weight: bold;
+        opacity: 1 !important;
+}
+
+.bar-wrapper {
+        opacity: 1 !important;
+}
+
+.today-highlight {
+        fill: #f9546b;
+        opacity: 0.5 !important;
 }
 
 /* Footer */
