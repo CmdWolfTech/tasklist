@@ -1,7 +1,39 @@
 {{ define "main" }}
-<article class="project-detail">
-	<h2 class="project-title">{{ .Title }}</h2>
-	<p class="project-date">Start: {{ with .Date }}{{ .Format "2006-01-02" }}{{ end }}</p>
-	<div id="gantt-container">{{ .Content }}</div>
-</article>
+{{ $start := time .Params.start }}
+{{ $end := time .Params.end }}
+{{ $days := add 1 (div (sub ($end.Unix) ($start.Unix)) 86400) }}
+<div class="card task-details" id="task-details">
+  <div class="task-details-header">
+    <div class="task-details-title">{{ .Title }}</div>
+    <div class="task-details-meta">
+      <span class="status status-{{ if eq .Params.status "comp" }}completed{{ else if eq .Params.status "go" }}in-progress{{ else }}not-started{{ end }}">
+        {{ if eq .Params.status "comp" }}完了{{ else if eq .Params.status "go" }}進行中{{ else }}未着手{{ end }}
+      </span>
+      <span class="priority priority-{{ lower .Params.priority }}">
+        {{ if eq .Params.priority "High" }}高{{ else if eq .Params.priority "Midium" }}中{{ else }}低{{ end }}
+      </span>
+    </div>
+  </div>
+  <div class="task-details-info">
+    <div class="task-details-item">
+      <div class="task-details-label">開始日</div>
+      <div class="task-details-value">{{ .Params.start }}</div>
+    </div>
+    <div class="task-details-item">
+      <div class="task-details-label">終了日</div>
+      <div class="task-details-value">{{ .Params.end }}</div>
+    </div>
+    <div class="task-details-item">
+      <div class="task-details-label">期間</div>
+      <div class="task-details-value">{{ $days }}日間</div>
+    </div>
+    <div class="task-details-item">
+      <div class="task-details-label">担当者</div>
+      <div class="task-details-value">{{ .Params.assignee }}</div>
+    </div>
+  </div>
+  <div class="task-description">
+    {{ .Content }}
+  </div>
+</div>
 {{ end }}
