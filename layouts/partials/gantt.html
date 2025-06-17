@@ -1,5 +1,6 @@
 {{ with .File }}
-<div id="gantt-{{ .BaseFileName }}"></div>
+{{ $gid := printf "gantt-%s" (path.Base .Dir | urlize) }}
+<div id="{{ $gid }}"></div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const tasks = [
@@ -14,7 +15,7 @@
         }{{ if lt (add $i 1) (len $.Pages) }}, {{ end }}
     {{- end }}
       ];
-  new Gantt(document.getElementById('gantt-{{ .BaseFileName }}'), tasks, { view_mode: 'Day', date_format: 'YYYY-MM-DD' });
+  new Gantt(document.getElementById('{{ $gid }}'), tasks, { view_mode: 'Day', date_format: 'YYYY-MM-DD' });
     });
 </script>
 {{ else }}
