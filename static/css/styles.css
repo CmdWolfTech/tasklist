@@ -246,3 +246,8 @@ body {
 .task-table th {
         background-color: #f0f0f0;
 }
+
+/* Generic page styling */
+.page-content {
+        padding: 2em 0;
+}
