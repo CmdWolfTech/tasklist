@@ -23,3 +23,5 @@ title: "Contact"
 </form>
 
 </section>
+
+{{< social-icons >}}

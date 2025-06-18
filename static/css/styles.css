@@ -388,3 +388,22 @@ body {
 .back-link a:hover {
         text-decoration: underline;
 }
+
+/* Social Icons */
+.social-icons {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem 0;
+}
+
+.social-icons .icon {
+        width: 24px;
+        height: 24px;
+        transition: opacity 0.3s;
+}
+
+.social-icons a:hover .icon {
+        opacity: 0.6;
+}
