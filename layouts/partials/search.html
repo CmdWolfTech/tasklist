@@ -1,0 +1,33 @@
+<div class="search-container">
+  <input id="search-input" type="text" placeholder="検索..." class="search-box">
+  <ul id="search-results" class="search-results"></ul>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const res = await fetch('/index.json');
+    const data = await res.json();
+
+    const fuse = new Fuse(data, {
+      keys: ['title', 'summary'],
+      includeScore: true,
+      threshold: 0.3
+    });
+
+    const input = document.getElementById('search-input');
+    const resultsList = document.getElementById('search-results');
+
+    input.addEventListener('input', () => {
+      const query = input.value;
+      const results = fuse.search(query).slice(0, 10);
+
+      resultsList.innerHTML = '';
+      results.forEach(({ item }) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="${item.permalink}">${item.title}</a>`;
+        resultsList.appendChild(li);
+      });
+    });
+  });
+</script>

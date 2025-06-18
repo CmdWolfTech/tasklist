@@ -3,6 +3,9 @@ languageCode = "ja"
 title = "ProjectBoard"
 buildFuture = true
 
+[outputs]
+  home = ["HTML", "JSON"]
+
 [params]
   description = "sample"
   logo_text = "Logo_text"
