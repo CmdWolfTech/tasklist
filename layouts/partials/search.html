@@ -6,7 +6,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.1.0/fuse.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', async () => {
-    const res = await fetch('/index.json');
+    const res = await fetch('{{ "index.json" | relURL }}');
     const data = await res.json();
 
     const fuse = new Fuse(data, {
