@@ -7,9 +7,21 @@ buildFuture = true
   description = "sample"
   logo_text = "Logo_text"
 
-  [params.contact]
+[params.contact]
     button_text = "contact"
     button_link = "/contact-form"
+
+  [params.social]
+    twitter  = "https://twitter.com/yourhandle"
+    facebook = "https://facebook.com/yourhandle"
+    instagram = "https://instagram.com/yourhandle"
+    threads   = "https://www.threads.net/@yourhandle"
+    youtube   = "https://youtube.com/yourchannel"
+    linkedin  = "https://linkedin.com/in/yourprofile"
+    github    = "https://github.com/yourhandle"
+    tiktok    = "https://tiktok.com/@yourhandle"
+    note      = "https://note.com/yourhandle"
+    bluesky   = "https://bsky.app/profile/yourhandle"
 
 [menu]
   [[menu.main]]

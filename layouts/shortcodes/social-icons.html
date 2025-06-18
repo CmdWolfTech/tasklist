@@ -1,0 +1,17 @@
+{{ $social := site.Params.social }}
+{{ $links := slice }}
+{{ range $key, $url := $social }}
+  {{ if $url }}
+    {{ $links = $links | append (dict "key" $key "url" $url) }}
+  {{ end }}
+{{ end }}
+{{ if gt (len $links) 0 }}
+<h2>SNS</h2>
+<div class="social-icons">
+  {{ range $links }}
+    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .key }}">
+      <img src="{{ printf "icons/%s.svg" .key | relURL }}" alt="{{ .key }} icon" class="icon">
+    </a>
+  {{ end }}
+</div>
+{{ end }}
