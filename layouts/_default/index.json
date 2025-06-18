@@ -1,9 +1,12 @@
 [
-  {{- range .Site.RegularPages }}
+  {{ $pages := .Site.RegularPages }}
+  {{ range $i, $p := $pages }}
   {
-    "title": {{ .Title | jsonify }},
-    "permalink": {{ .Permalink | jsonify }},
-    "summary": {{ .Summary | plainify | jsonify }}
-  }{{ if not (last .) }},{{ end }}
-  {{- end }}
+    "title": {{ $p.Title | jsonify }},
+    "permalink": {{ $p.Permalink | jsonify }},
+    "summary": {{ $p.Summary | plainify | jsonify }}
+  }
+  {{ if lt (add $i 1) (len $pages) }},
+  {{ end }}
+  {{ end }}
 ]

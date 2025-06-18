@@ -22,3 +22,5 @@ Monitor progress over time to stay on schedule.
 </div>
 
 </div>
+
+{{< social-icons >}}

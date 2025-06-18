@@ -10,10 +10,6 @@ buildFuture = true
   description = "sample"
   logo_text = "Logo_text"
 
-[params.contact]
-    button_text = "contact"
-    button_link = "/contact-form"
-
   [params.social]
     twitter  = "https://twitter.com/yourhandle"
     facebook = "https://facebook.com/yourhandle"
@@ -38,7 +34,7 @@ buildFuture = true
     url = "about/"
     weight = 2
   [[menu.main]]
-    identifier = "contact"
-    name = "contact"
-    url = "contact/"
+    identifier = "search"
+    name = "search"
+    url = "search/"
     weight = 3
