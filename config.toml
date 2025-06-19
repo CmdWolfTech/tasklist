@@ -1,7 +1,8 @@
 baseURL = "https://cmdwolftech.gitlab.io/tasklist/"
-languageCode = "ja"
 title = "ProjectBoard"
 buildFuture = true
+defaultContentLanguage = "ja"
+defaultContentLanguageInSubdir = true
 
 [outputs]
   home = ["HTML", "JSON"]
@@ -22,19 +23,51 @@ buildFuture = true
     note      = "https://note.com/yourhandle"
     bluesky   = "https://bsky.app/profile/yourhandle"
 
-[menu]
-  [[menu.main]]
-    identifier = "home"
-    name = "home"
-    url = "/"
+
+
+[languages]
+  [languages.ja]
+    languageName = "日本語"
     weight = 1
-  [[menu.main]]
-    identifier = "about"
-    name = "about"
-    url = "about/"
+    contentDir = "content/ja"
+    languageCode = "ja"
+
+    [languages.ja.menu]
+      [[languages.ja.menu.main]]
+        identifier = "home"
+        name = "ホーム"
+        url = "/"
+        weight = 1
+      [[languages.ja.menu.main]]
+        identifier = "about"
+        name = "概要"
+        url = "about/"
+        weight = 2
+      [[languages.ja.menu.main]]
+        identifier = "search"
+        name = "検索"
+        url = "search/"
+        weight = 3
+
+  [languages.en]
+    languageName = "English"
     weight = 2
-  [[menu.main]]
-    identifier = "search"
-    name = "search"
-    url = "search/"
-    weight = 3
+    contentDir = "content/en"
+    languageCode = "en"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "home"
+        name = "Home"
+        url = "/en/"
+        weight = 1
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/en/about/"
+        weight = 2
+      [[languages.en.menu.main]]
+        identifier = "search"
+        name = "Search"
+        url = "/en/search/"
+        weight = 3
