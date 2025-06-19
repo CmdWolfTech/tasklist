@@ -43,10 +43,18 @@ body {
 }
 
 .main-nav a {
-	text-decoration: none;
-	color: #555;
-	padding: 0.5em 1rem;
-	transition: background 0.3s;
+        text-decoration: none;
+        color: #555;
+        padding: 0.5em 1rem;
+        transition: background 0.3s;
+}
+
+.main-nav select {
+        padding: 0.5em 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: #fff;
+        margin-right: 0.5rem;
 }
 
 .main-nav a:hover {
