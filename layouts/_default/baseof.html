@@ -27,7 +27,17 @@
                 <nav class="main-nav">
                         <ul>
                                 {{ range .Site.Menus.main }}
+                                {{ if eq .Identifier "home" }}
+                                <li>
+                                        <select id="lang-switcher" onchange="location.href=this.value">
+                                                {{ range $.Site.Home.AllTranslations }}
+                                                <option value="{{ .RelPermalink }}" {{ if eq .Lang $.Site.Language.Lang }}selected{{ end }}>{{ .Language.LanguageName }}</option>
+                                                {{ end }}
+                                        </select>
+                                </li>
+                                {{ else }}
                                 <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                                {{ end }}
                                 {{ end }}
                                 <li id="today-date"></li>
                         </ul>
