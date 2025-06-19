@@ -1,7 +1,10 @@
 {{ define "main" }}
 <section class="projects-list">
-	<h2 class="section-title">{{ .Title | title }}</h2>
-	{{ partial "gantt.html" . }}
-	{{ partial "task-table.html" . }}
+        <h2 class="section-title">{{ .Title | title }}</h2>
+        {{ partial "gantt.html" . }}
+        {{ partial "task-table.html" . }}
 </section>
+<div class="back-link">
+        <a href="{{ "/" | relURL }}">&larr; 戻る</a>
+</div>
 {{ end }}
