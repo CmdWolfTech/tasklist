@@ -165,17 +165,43 @@ body {
 .bar-label {
         fill: #000 !important;
         font-size: 12px !important;
-        font-weight: bold;
+        font-weight: bold !important;
         opacity: 1 !important;
 }
 
-.bar-wrapper {
-        opacity: 1 !important;
+.bar-progress {
+        fill: #5cb85c !important;
 }
 
 .today-highlight {
-        fill: #f9546b;
+        fill: #f9546b !important;
         opacity: 0.5 !important;
+}
+
+.popup-wrapper {
+        color: #dfe2e5 !important;
+}
+.popup-wrapper .title {
+        border-bottom: 3px solid #dfe2e5 !important;
+}
+
+/* Frappe Gantt Custom */
+.priority-high rect.bar {
+        stroke: #d9534f !important;
+        fill: #d9534f !important;
+        stroke-width: 2 !important;
+}
+
+.priority-medium rect.bar {
+        stroke: #f0ad4e !important;
+        fill: #f0ad4e !important;
+        stroke-width: 2 !important;
+}
+
+.priority-low rect.bar {
+        stroke: #5bc0de !important;
+        fill: #5bc0de !important;
+        stroke-width: 2 !important;
 }
 
 /* Footer */
@@ -187,77 +213,6 @@ body {
 	color: #777;
 }
 
-/* Frappe Gantt Custom */
-.status-not-started rect.bar { fill: #cccccc; }
-.status-in-progress rect.bar { fill: #f0ad4e; }
-.status-completed rect.bar { fill: #5cb85c; }
-.priority-high rect.bar { stroke: #d9534f; stroke-width: 2; }
-.priority-medium rect.bar { stroke: #f0ad4e; stroke-width: 2; }
-.priority-low rect.bar { stroke: #5bc0de; stroke-width: 2; }
-
-/* Home Hero */
-.home-hero {
-        padding: 3em 0;
-        text-align: center;
-}
-
-.home-hero a {
-        display: inline-block;
-        margin-top: 1rem;
-        background: #333;
-        color: #fff;
-        padding: 0.5em 1em;
-        border-radius: 4px;
-        text-decoration: none;
-}
-
-/* Home Features */
-.home-features {
-        padding: 2em 0;
-}
-
-.features-list {
-        display: flex;
-        gap: 1.5em;
-        flex-wrap: wrap;
-}
-
-.feature-item {
-        flex: 1 1 30%;
-        background-color: #ffffff;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 1em;
-        text-align: center;
-}
-
-.feature-item h3 {
-        margin-bottom: 0.5rem;
-}
-
-/* Contact */
-.contact-section {
-        padding: 2em 0;
-        background-color: #ffffff;
-}
-
-.contact-section form {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5em;
-}
-
-.contact-section input,
-.contact-section textarea {
-        padding: 0.5em;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-}
-
-.contact-section button {
-        align-self: flex-start;
-        padding: 0.5em 1em;
-}
 
 /* Task Table */
 .task-table {
