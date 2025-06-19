@@ -83,6 +83,7 @@ body {
                 padding: 1em;
                 box-shadow: -2px 0 5px rgba(0,0,0,0.1);
                 transition: right 0.3s;
+                z-index: 1000;
         }
 
         .main-nav ul.open {
@@ -91,6 +92,8 @@ body {
 
         .menu-toggle {
                 display: block;
+                position: relative;
+                z-index: 1001;
         }
 }
 
