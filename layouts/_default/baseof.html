@@ -24,8 +24,9 @@
 	<header class="site-header">
 		<div class="container header-inner">
 			<h1 class="logo"><a href="{{ "" | absURL }}">{{ .Site.Title }}</a></h1>
-                <nav class="main-nav">
-                        <ul>
+               <nav class="main-nav">
+                       <button id="menu-toggle" class="menu-toggle" aria-label="メニュー">&#x22EE;</button>
+                       <ul>
                                 {{ range .Site.Menus.main }}
                                 {{ if eq .Identifier "home" }}
                                 <li>
@@ -49,7 +50,8 @@
 		{{ block "main" . }}{{ end }}
 	</main>
 
-	<script src="{{ "js/today-jst.js" | relURL }}" defer></script>
+       <script src="{{ "js/today-jst.js" | relURL }}" defer></script>
+       <script src="{{ "js/menu-toggle.js" | relURL }}" defer></script>
 
 	<footer class="site-footer">
 		<div class="container">
