@@ -1,6 +1,6 @@
 {{ define "main" }}
 <section class="projects-list">
-	<h2 class="section-title">{{ .Section | title }}</h2>
+	<h2 class="section-title">{{ .Title | title }}</h2>
 	{{ partial "gantt.html" . }}
 	{{ partial "task-table.html" . }}
 </section>
