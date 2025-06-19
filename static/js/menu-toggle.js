@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function closeOnClickOutside(e) {
     if (!menu.contains(e.target) && e.target !== toggle) {
       menu.classList.remove('open');
+      toggle.innerHTML = '&#x22EE;'; // 元に戻す
       document.removeEventListener('click', closeOnClickOutside);
     }
   }
@@ -14,8 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
     e.stopPropagation();
     menu.classList.toggle('open');
     if (menu.classList.contains('open')) {
+      toggle.innerHTML = '&times;'; // ✗ に変更
       document.addEventListener('click', closeOnClickOutside);
     } else {
+      toggle.innerHTML = '&#x22EE;'; // 三点リーダーに戻す
       document.removeEventListener('click', closeOnClickOutside);
     }
   });

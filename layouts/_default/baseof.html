@@ -27,18 +27,16 @@
                <nav class="main-nav">
                        <button id="menu-toggle" class="menu-toggle" aria-label="メニュー">&#x22EE;</button>
                        <ul>
-                                {{ range .Site.Menus.main }}
-                                {{ if eq .Identifier "home" }}
                                 <li>
                                         <select id="lang-switcher" onchange="location.href=this.value">
-                                                {{ range $.Site.Home.AllTranslations }}
-                                                <option value="{{ .RelPermalink }}" {{ if eq .Lang $.Site.Language.Lang }}selected{{ end }}>{{ .Language.LanguageName }}</option>
-                                                {{ end }}
+                                        {{ range $.Site.Home.AllTranslations }}
+                                        <option value="{{ .RelPermalink }}" {{ if eq .Lang $.Site.Language.Lang }}selected{{ end }}>{{
+                                                .Language.LanguageName }}</option>
+                                        {{ end }}
                                         </select>
                                 </li>
-                                {{ else }}
+                                {{ range .Site.Menus.main }}
                                 <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-                                {{ end }}
                                 {{ end }}
                                 <li id="today-date"></li>
                         </ul>
