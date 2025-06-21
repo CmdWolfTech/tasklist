@@ -66,6 +66,17 @@ body {
         cursor: pointer;
 }
 
+.menu-close {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        padding: 0.5em;
+        cursor: pointer;
+        width: 100%;
+        text-align: right;
+}
+
 .main-nav a:hover {
         background-color: #efefef;
         border-radius: 4px;
@@ -94,6 +105,9 @@ body {
                 display: block;
                 position: relative;
                 z-index: 1001;
+        }
+        .menu-close {
+                display: block;
         }
 }
 
