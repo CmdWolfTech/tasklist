@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function closeMenu() {
     menu.classList.remove('open');
+    if (toggle) toggle.style.display = '';
     document.removeEventListener('click', closeOnClickOutside);
   }
 
@@ -19,8 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
     e.stopPropagation();
     menu.classList.toggle('open');
     if (menu.classList.contains('open')) {
+      toggle.style.display = 'none';
       document.addEventListener('click', closeOnClickOutside);
     } else {
+      toggle.style.display = '';
       document.removeEventListener('click', closeOnClickOutside);
     }
   });
