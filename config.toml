@@ -10,6 +10,7 @@ defaultContentLanguageInSubdir = true
 [params]
   description = "sample"
   logo_text = "Logo_text"
+  copyLight = "2025 ProjectBoard. Made with"
 
   [params.social]
     twitter  = "https://twitter.com/yourhandle"
@@ -22,8 +23,6 @@ defaultContentLanguageInSubdir = true
     tiktok    = "https://tiktok.com/@yourhandle"
     note      = "https://note.com/yourhandle"
     bluesky   = "https://bsky.app/profile/yourhandle"
-
-
 
 [languages]
   [languages.ja]

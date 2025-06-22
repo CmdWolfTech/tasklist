@@ -8,28 +8,28 @@
     <div class="task-details-meta">
       <span class="status status-{{ if eq .Params.status "completed" }}completed{{ else if eq .Params.status "in-progress"
         }}in-progress{{ else }}not-started{{ end }}">
-        {{ if eq .Params.status "completed" }}完了{{ else if eq .Params.status "in-progress" }}進行中{{ else }}未着手{{ end }}
+        {{ if eq .Params.status "completed" }}{{ i18n "taskCompleted" }}{{ else if eq .Params.status "in-progress" }}{{ i18n "taskInProgress" }}{{ else }}{{ i18n "taskNotStarted" }}{{ end }}
       </span>
       <span class="priority priority-{{ lower .Params.priority }}">
-        {{ if eq .Params.priority "High" }}高{{ else if eq .Params.priority "Medium" }}中{{ else }}低{{ end }}
+        {{ if eq .Params.priority "High" }}{{ i18n "priorityHigh" }}{{ else if eq .Params.priority "Medium" }}{{ i18n "priorityMedium" }}{{ else }}{{ i18n "priorityLow" }}{{ end }}
       </span>
     </div>
   </div>
   <div class="task-details-info">
     <div class="task-details-item">
-      <div class="task-details-label">開始日</div>
+      <div class="task-details-label">{{ i18n "Start" }}</div>
       <div class="task-details-value">{{ .Params.start }}</div>
     </div>
     <div class="task-details-item">
-      <div class="task-details-label">終了日</div>
+      <div class="task-details-label">{{ i18n "End" }}</div>
       <div class="task-details-value">{{ .Params.end }}</div>
     </div>
     <div class="task-details-item">
-      <div class="task-details-label">期間</div>
-      <div class="task-details-value">{{ $days }}日間</div>
+      <div class="task-details-label">{{ i18n "Period" }}</div>
+      <div class="task-details-value">{{ $days }}{{ i18n "Days"}}</div>
     </div>
     <div class="task-details-item">
-      <div class="task-details-label">担当者</div>
+      <div class="task-details-label">{{ i18n "PIC" }}</div>
       <div class="task-details-value">{{ .Params.assignee }}</div>
     </div>
   </div>
@@ -38,6 +38,6 @@
   </div>
 </div>
 <div class="back-link">
-  <a href="{{ .CurrentSection.RelPermalink }}">&larr; 戻る</a>
+  <a href="{{ .CurrentSection.RelPermalink }}">&larr; {{ i18n "Back"}}</a>
 </div>
 {{ end }}

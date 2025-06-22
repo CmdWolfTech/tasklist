@@ -42,6 +42,10 @@ body {
 	list-style: none;
 }
 
+.main-nav li {
+        padding: 0 0.5em;
+}
+
 .main-nav a {
         text-decoration: none;
         color: #555;
@@ -95,6 +99,10 @@ body {
                 box-shadow: -2px 0 5px rgba(0,0,0,0.1);
                 transition: right 0.3s;
                 z-index: 1000;
+        }
+
+        .main-nav li {
+                padding: 0.5em 0;
         }
 
         .menu-close-item {

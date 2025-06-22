@@ -25,10 +25,10 @@
 		<div class="container header-inner">
 			<h1 class="logo"><a href="{{ "" | absURL }}">{{ .Site.Title }}</a></h1>
                <nav class="main-nav">
-                       <button id="menu-toggle" class="menu-toggle" aria-label="メニュー">&#x22EE;</button>
+                       <button id="menu-toggle" class="menu-toggle" aria-label="{{ i18n "openMenu" }}">&#x22EE;</button>
                        <ul>
                                 <li class="menu-close-item">
-                                        <button id="menu-close" class="menu-close" aria-label="メニューを閉じる">&times;</button>
+                                        <button id="menu-close" class="menu-close" aria-label="{{ i18n "openMenu" }}">&times;</button>
                                 </li>
                                 <li>
                                         <select id="lang-switcher" onchange="location.href=this.value">
@@ -41,7 +41,8 @@
                                 {{ range .Site.Menus.main }}
                                 <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
                                 {{ end }}
-                                <li id="today-date"></li>
+                                <li id="today-date">
+                                </li>
                         </ul>
                 </nav>
 		</div>
@@ -51,12 +52,13 @@
 		{{ block "main" . }}{{ end }}
 	</main>
 
-       <script src="{{ "js/today-jst.js" | relURL }}" defer></script>
+        {{- $lang := .Site.Language.Lang -}}
+       <script src="{{ printf "js/today-%s.js" $lang | relURL }}" defer></script>
        <script src="{{ "js/menu-toggle.js" | relURL }}" defer></script>
 
 	<footer class="site-footer">
 		<div class="container">
-			<p>&copy; 2025 ProjectBoard. Made with</p>
+			<p>&copy; {{ .Site.Params.copyLight }}</p>
 		</div>
 	</footer>
 

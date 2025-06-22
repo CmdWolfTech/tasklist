@@ -2,11 +2,11 @@
 <table class="task-table">
     <thead>
         <tr>
-            <th>タスク</th>
-            <th>期間</th>
-            <th>ステータス</th>
-            <th>担当者</th>
-            <th>優先度</th>
+            <th>{{ i18n "Task" }}</th>
+            <th>{{ i18n "Period" }}</th>
+            <th>{{ i18n "Status" }}</th>
+            <th>{{ i18n "PIC" }}</th>
+            <th>{{ i18n "Priority" }}</th>
         </tr>
     </thead>
     <tbody>
@@ -17,13 +17,13 @@
             <td>
                 <span class="status status-{{ if eq .Params.status "completed" }}completed{{ else if eq .Params.status "in-progress" }}in-progress{{
                     else }}not-started{{ end }}">
-                    {{ if eq .Params.status "completed" }}完了{{ else if eq .Params.status "in-progress" }}進行中{{ else }}未着手{{ end }}
+                    {{ if eq .Params.status "completed" }}{{ i18n "taskCompleted" }}{{ else if eq .Params.status "in-progress" }}{{ i18n "taskInProgress" }}{{ else }}{{ i18n "taskNotStarted" }}{{ end }}
                 </span>
             </td>
             <td>{{ .Params.assignee }}</td>
             <td>
                 <span class="priority priority-{{ lower .Params.priority }}">
-                    {{ if eq .Params.priority "High" }}高{{ else if eq .Params.priority "Medium" }}中{{ else }}低{{ end }}
+                    {{ if eq .Params.priority "High" }}{{ i18n "priorityHigh" }}{{ else if eq .Params.priority "Medium" }}{{ i18n "priorityMedium" }}{{ else }}{{ i18n "priorityLow" }}{{ end }}
                 </span>
             </td>
         </tr>

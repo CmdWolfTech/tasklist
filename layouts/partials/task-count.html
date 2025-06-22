@@ -1,8 +1,8 @@
 {{ $total := len .Pages }}
-{{ $completed := len (where .Pages "Params.status" "comp") }}
+{{ $completed := len (where .Pages "Params.status" "completed") }}
 {{ $remaining := sub $total $completed }}
 <div class="task-counts">
-    <span class="task-total">Total: {{ $total }}</span>
-    <span class="task-completed">Completed: {{ $completed }}</span>
-    <span class="task-remaining">Remaining: {{ $remaining }}</span>
+    <span class="task-total">{{ i18n "countTotal" }} : {{ $total }}</span>
+    <span class="task-completed">{{ i18n "countCompleted" }} : {{ $completed }}</span>
+    <span class="task-remaining">{{ i18n "countRemaining" }} : {{ $remaining }}</span>
 </div>
