@@ -43,3 +43,7 @@
   translation: "最終更新日"
 - id: Tags
   translation: "タグ"
+- id: ParentTask
+  translation: "親タスク"
+- id: ChildTasks
+  translation: "子タスク"

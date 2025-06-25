@@ -52,6 +52,32 @@
       </div>
     </div>
     {{ end }}
+    {{ with .Params.parent }}
+    {{ $parent := $.CurrentSection.GetPage . }}
+    <div class="task-details-item">
+      <div class="task-details-label">{{ i18n "ParentTask" }}</div>
+      <div class="task-details-value">
+        {{ if $parent }}
+          <a href="{{ $parent.RelPermalink }}">{{ $parent.Title }}</a>
+        {{ else }}
+          {{ . }}
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+    {{ $children := where $.CurrentSection.Pages "Params.parent" $.File.BaseFileName }}
+    {{ if gt (len $children) 0 }}
+    <div class="task-details-item">
+      <div class="task-details-label">{{ i18n "ChildTasks" }}</div>
+      <div class="task-details-value">
+        <ul>
+          {{ range $children }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+    {{ end }}
   </div>
   <div class="task-description">
     {{ .Content }}

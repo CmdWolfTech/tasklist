@@ -43,3 +43,7 @@
   translation: "Last Updated"
 - id: Tags
   translation: "Tags"
+- id: ParentTask
+  translation: "Parent Task"
+- id: ChildTasks
+  translation: "Child Tasks"
