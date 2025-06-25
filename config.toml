@@ -4,6 +4,7 @@ buildFuture = true
 defaultContentLanguage = "ja"
 defaultContentLanguageInSubdir = true
 enableGitInfo = true
+enableRobotsTXT = true
 
 [outputs]
   home = ["HTML", "JSON", "SITEMAP", "ROBOTS"]
@@ -14,6 +15,7 @@ enableGitInfo = true
   filename = "sitemap.xml"
 
 [params]
+  enableRobotsTXT = true
   description = "sample"
   logo_text = "Logo_text"
   copyLight = "2025 ProjectBoard. Made with"
