@@ -6,7 +6,12 @@ defaultContentLanguageInSubdir = true
 enableGitInfo = true
 
 [outputs]
-  home = ["HTML", "JSON"]
+  home = ["HTML", "JSON", "SITEMAP"]
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
 
 [params]
   description = "sample"
