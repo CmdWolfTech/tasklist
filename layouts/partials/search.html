@@ -1,5 +1,6 @@
 <div class="search-container">
   <input id="search-input" type="text" placeholder="{{ i18n "searchLabel" }}" class="search-box">
+  <div id="tag-list" class="tag-list"></div>
   <ul id="search-results" class="search-results"></ul>
 </div>
 
@@ -17,17 +18,39 @@
 
     const input = document.getElementById('search-input');
     const resultsList = document.getElementById('search-results');
+    const tagList = document.getElementById('tag-list');
 
-    input.addEventListener('input', () => {
-      const query = input.value;
-      const results = fuse.search(query).slice(0, 10);
-
+    function renderResults(items) {
       resultsList.innerHTML = '';
-      results.forEach(({ item }) => {
+      items.forEach((item) => {
         const li = document.createElement('li');
         li.innerHTML = `<a href="${item.permalink}">${item.title}</a>`;
         resultsList.appendChild(li);
       });
+    }
+
+    const tags = new Set();
+    data.forEach(page => {
+      if (page.tags) {
+        page.tags.forEach(tag => tags.add(tag));
+      }
+    });
+
+    tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'tag';
+      span.textContent = tag;
+      span.addEventListener('click', () => {
+        const filtered = data.filter(page => page.tags && page.tags.includes(tag));
+        renderResults(filtered);
+      });
+      tagList.appendChild(span);
+    });
+
+    input.addEventListener('input', () => {
+      const query = input.value;
+      const results = fuse.search(query).slice(0, 10).map(r => r.item);
+      renderResults(results);
     });
   });
 </script>
