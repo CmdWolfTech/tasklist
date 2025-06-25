@@ -5,6 +5,9 @@ end: "2025-05-23"
 status: "completed"
 assignee: "sato"
 priority: "High"
+tags:
+  - initial
+  - alpha
 ---
 
 test
