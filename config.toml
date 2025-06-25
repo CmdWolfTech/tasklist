@@ -33,6 +33,15 @@ enableRobotsTXT = true
     note      = "https://note.com/yourhandle"
     bluesky   = "https://bsky.app/profile/yourhandle"
 
+  [params.opengraph]
+    enable = true
+    image = "profile.png"
+
+  [params.twitter_cards]
+    enable = true
+    site = "@your_twitter_id"
+    image = "profile.png"
+
 [languages]
   [languages.ja]
     languageName = "日本語"
