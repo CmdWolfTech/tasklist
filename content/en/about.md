@@ -25,4 +25,6 @@ Monitor progress over time to stay on schedule.
 
 </div>
 
+{{< member >}}
+
 {{< social-icons >}}
