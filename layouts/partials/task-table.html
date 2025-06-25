@@ -1,4 +1,5 @@
 {{ with .Pages }}
+{{ $pages := . }}
 <table class="task-table">
     <thead>
         <tr>
@@ -7,10 +8,13 @@
             <th>{{ i18n "Status" }}</th>
             <th>{{ i18n "PIC" }}</th>
             <th>{{ i18n "Priority" }}</th>
+            <th>{{ i18n "ParentTask" }}</th>
+            <th>{{ i18n "ChildTasks" }}</th>
         </tr>
     </thead>
     <tbody>
-        {{ range sort . "Params.start" }}
+        {{ range sort $pages "Params.start" }}
+        {{ $children := where $pages "Params.parent" .File.BaseFileName }}
         <tr>
             <td><a href="{{ .RelPermalink }}">{{ .Params.title }}</a></td>
             <td>{{ .Params.start }} - {{ .Params.end }}</td>
@@ -25,6 +29,27 @@
                 <span class="priority priority-{{ lower .Params.priority }}">
                     {{ if eq .Params.priority "High" }}{{ i18n "priorityHigh" }}{{ else if eq .Params.priority "Medium" }}{{ i18n "priorityMedium" }}{{ else }}{{ i18n "priorityLow" }}{{ end }}
                 </span>
+            </td>
+            <td>
+                {{ with .Params.parent }}
+                    {{ $parent := $.CurrentSection.GetPage . }}
+                    {{ if $parent }}
+                        <a href="{{ $parent.RelPermalink }}">{{ $parent.Title }}</a>
+                    {{ else }}
+                        {{ . }}
+                    {{ end }}
+                {{ else }}-
+                {{ end }}
+            </td>
+            <td>
+                {{ if gt (len $children) 0 }}
+                    <ul>
+                        {{ range $children }}
+                            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                        {{ end }}
+                    </ul>
+                {{ else }}-
+                {{ end }}
             </td>
         </tr>
         {{ end }}
