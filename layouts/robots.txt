@@ -1,3 +1,4 @@
+{{- if .Site.Params.enableRobotsTXT -}}
 {{- $host := replaceRE "^https?://([^/]+)/?.*$" "$1" .Site.BaseURL -}}
 User-agent: *
 Allow: /
@@ -9,3 +10,4 @@ Disallow: /{{ .Lang }}/search/
 
 Host: {{ $host }}
 Sitemap: {{ .Site.BaseURL }}sitemap.xml
+{{- end -}}
