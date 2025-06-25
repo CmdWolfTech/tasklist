@@ -32,6 +32,10 @@
       <div class="task-details-label">{{ i18n "PIC" }}</div>
       <div class="task-details-value">{{ .Params.assignee }}</div>
     </div>
+    <div class="task-details-item">
+      <div class="task-details-label">{{ i18n "LastUpdated" }}</div>
+      <div class="task-details-value">{{ .Lastmod.Format "2006-01-02" }}</div>
+    </div>
   </div>
   <div class="task-description">
     {{ .Content }}
