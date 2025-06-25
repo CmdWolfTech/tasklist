@@ -3,6 +3,7 @@ title = "ProjectBoard"
 buildFuture = true
 defaultContentLanguage = "ja"
 defaultContentLanguageInSubdir = true
+enableGitInfo = true
 
 [outputs]
   home = ["HTML", "JSON"]

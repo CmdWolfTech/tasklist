@@ -34,7 +34,13 @@
     </div>
     <div class="task-details-item">
       <div class="task-details-label">{{ i18n "LastUpdated" }}</div>
-      <div class="task-details-value">{{ .Lastmod.Format "2006-01-02" }}</div>
+      <div class="task-details-value">
+        {{ with .Params.lastmod }}
+          {{ . | time.Format "2006-01-02" }}
+        {{ else }}
+          {{ .Lastmod.Format "2006-01-02" }}
+        {{ end }}
+      </div>
     </div>
   </div>
   <div class="task-description">
