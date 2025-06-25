@@ -4,7 +4,8 @@
   {
     "title": {{ $element.Title | jsonify }},
     "permalink": {{ $element.Permalink | jsonify }},
-    "summary": {{ $element.Summary | plainify | jsonify}}
+    "summary": {{ $element.Summary | plainify | jsonify}},
+    "tags": {{ $element.Params.tags | jsonify }}
   }{{ if lt (add $index 1) (len $pages) }},{{ end }}
 {{- end }}
 ]
