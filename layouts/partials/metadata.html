@@ -2,22 +2,26 @@
 {{ $description := .Params.description | default .Site.Params.description }}
 {{ $type := cond (or .IsHome .IsSection) "website" "article" }}
 {{ $url := .Permalink }}
+{{ $imageParam := .Site.Params.opengraph.image | default (.Site.Params.twitter_cards.image | default .Site.Params.profile_image) }}
 {{ $image := "" }}
 {{ with .Params.images }}
   {{ $image = (index . 0) | absURL }}
-{{ else }}
-  {{ with .Site.Params.profile_image }}
-    {{ $image = printf "img/%s" . | absURL }}
-  {{ end }}
+{{ else if $imageParam }}
+  {{ $image = printf "img/%s" $imageParam | absURL }}
 {{ end }}
 
-{{ if $title }}<meta property="og:title" content="{{ $title }}">{{ end }}
-{{ if $description }}<meta property="og:description" content="{{ $description }}">{{ end }}
-<meta property="og:url" content="{{ $url }}">
-{{ if $type }}<meta property="og:type" content="{{ $type }}">{{ end }}
-{{ if $image }}<meta property="og:image" content="{{ $image }}">{{ end }}
+{{ if .Site.Params.opengraph.enable }}
+  {{ if $title }}<meta property="og:title" content="{{ $title }}">{{ end }}
+  {{ if $description }}<meta property="og:description" content="{{ $description }}">{{ end }}
+  <meta property="og:url" content="{{ $url }}">
+  {{ if $type }}<meta property="og:type" content="{{ $type }}">{{ end }}
+  {{ if $image }}<meta property="og:image" content="{{ $image }}">{{ end }}
+{{ end }}
 
-<meta name="twitter:card" content="summary_large_image">
-{{ if $title }}<meta name="twitter:title" content="{{ $title }}">{{ end }}
-{{ if $description }}<meta name="twitter:description" content="{{ $description }}">{{ end }}
-{{ if $image }}<meta name="twitter:image" content="{{ $image }}">{{ end }}
+{{ if .Site.Params.twitter_cards.enable }}
+  <meta name="twitter:card" content="summary_large_image">
+  {{ with .Site.Params.twitter_cards.site }}<meta name="twitter:site" content="{{ . }}">{{ end }}
+  {{ if $title }}<meta name="twitter:title" content="{{ $title }}">{{ end }}
+  {{ if $description }}<meta name="twitter:description" content="{{ $description }}">{{ end }}
+  {{ if $image }}<meta name="twitter:image" content="{{ $image }}">{{ end }}
+{{ end }}
