@@ -39,3 +39,5 @@
   translation: "終了日"
 - id: Days
   translation: "日間"
+- id: LastUpdated
+  translation: "最終更新日"
