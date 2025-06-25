@@ -6,8 +6,10 @@
 {{ $image := "" }}
 {{ with .Params.images }}
   {{ $image = (index . 0) | absURL }}
-{{ else if $imageParam }}
-  {{ $image = printf "img/%s" $imageParam | absURL }}
+{{ else }}
+  {{ if $imageParam }}
+    {{ $image = printf "img/%s" $imageParam | absURL }}
+  {{ end }}
 {{ end }}
 
 {{ if .Site.Params.opengraph.enable }}
