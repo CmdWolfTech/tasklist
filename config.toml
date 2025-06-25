@@ -6,7 +6,7 @@ defaultContentLanguageInSubdir = true
 enableGitInfo = true
 
 [outputs]
-  home = ["HTML", "JSON", "SITEMAP"]
+  home = ["HTML", "JSON", "SITEMAP", "ROBOTS"]
 
 [sitemap]
 #  changefreq = "monthly"
