@@ -5,6 +5,9 @@ end: "2025-05-26"
 status: "in-progress"
 assignee: "suzuki"
 priority: "Medium"
+tags:
+  - alpha
+  - progress
 ---
 
 test

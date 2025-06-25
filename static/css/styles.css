@@ -401,6 +401,21 @@ body {
         font-weight: bold;
 }
 
+/* Tags on task detail page */
+.tags {
+        margin-top: 0.5rem;
+}
+
+.tag {
+        display: inline-block;
+        background-color: #e7e7e7;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0.1rem 0.4rem;
+        margin-right: 0.25rem;
+        font-size: 0.8rem;
+}
+
 .task-description {
         margin-top: 1rem;
 }

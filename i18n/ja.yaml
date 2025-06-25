@@ -41,3 +41,5 @@
   translation: "日間"
 - id: LastUpdated
   translation: "最終更新日"
+- id: Tags
+  translation: "タグ"

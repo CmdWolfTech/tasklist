@@ -42,6 +42,16 @@
         {{ end }}
       </div>
     </div>
+    {{ with .Params.tags }}
+    <div class="task-details-item tags">
+      <div class="task-details-label">{{ i18n "Tags" }}</div>
+      <div class="task-details-value">
+        {{ range $index, $tag := . }}
+          {{ if $index }}, {{ end }}<span class="tag">{{ $tag }}</span>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
   </div>
   <div class="task-description">
     {{ .Content }}

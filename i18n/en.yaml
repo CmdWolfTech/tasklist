@@ -41,3 +41,5 @@
   translation: "Days"
 - id: LastUpdated
   translation: "Last Updated"
+- id: Tags
+  translation: "Tags"
