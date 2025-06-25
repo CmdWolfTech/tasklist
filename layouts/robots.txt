@@ -1,0 +1,11 @@
+{{- $host := replaceRE "^https?://([^/]+)/?.*$" "$1" .Site.BaseURL -}}
+User-agent: *
+Allow: /
+
+Disallow: /search/
+{{- range .Site.Languages }}
+Disallow: /{{ .Lang }}/search/
+{{- end }}
+
+Host: {{ $host }}
+Sitemap: {{ .Site.BaseURL }}sitemap.xml
