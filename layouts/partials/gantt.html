@@ -14,7 +14,8 @@
       start: "{{ $t.Params.start }}",
       end: "{{ $t.Params.end }}",
       progress: {{ if eq $t.Params.status "completed" }}100{{ else if eq $t.Params.status "in-progress" }}50{{ else }}0{{ end }},
-    custom_class: "status-{{ if eq $t.Params.status "completed" }}completed{{ else if eq $t.Params.status "in-progress" }}in-progress{{ else }}not-started{{ end }} priority-{{ lower $t.Params.priority }}"
+    custom_class: "status-{{ if eq $t.Params.status "completed" }}completed{{ else if eq $t.Params.status "in-progress" }}in-progress{{ else }}not-started{{ end }} priority-{{ lower $t.Params.priority }}",
+    dependencies: {{ if $t.Params.parent }}"{{ $t.Params.parent }}"{{ else }}""{{ end }}
     }{{ if ne $index $count }}, {{ end }}
     {{ end }}
     ];
@@ -51,7 +52,8 @@
       start: "{{ $t.Params.start }}",
       end: "{{ $t.Params.end }}",
       progress: {{ if eq $t.Params.status "completed" }}100{{ else if eq $t.Params.status "in-progress" }}50{{ else }}0{{ end }},
-    custom_class: "status-{{ if eq $t.Params.status "completed" }}completed{{ else if eq $t.Params.status "in-progress" }}in-progress{{ else }}not-started{{ end }} priority-{{ lower $t.Params.priority }}"
+    custom_class: "status-{{ if eq $t.Params.status "completed" }}completed{{ else if eq $t.Params.status "in-progress" }}in-progress{{ else }}not-started{{ end }} priority-{{ lower $t.Params.priority }}",
+    dependencies: {{ if $t.Params.parent }}"{{ $t.Params.parent }}"{{ else }}""{{ end }}
     }{{ if ne $index $count }}, {{ end }}
     {{ end }}
     ];
