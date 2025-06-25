@@ -437,6 +437,7 @@ body {
 /* Social Icons */
 .social-icons {
         display: flex;
+        flex-wrap: wrap;
         gap: 12px;
         justify-content: center;
         align-items: center;
@@ -444,8 +445,8 @@ body {
 }
 
 .social-icons .icon {
-        width: 24px;
-        height: 24px;
+        width: 48px;
+        height: 48px;
         transition: opacity 0.3s;
 }
 

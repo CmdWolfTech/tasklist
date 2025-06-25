@@ -2,13 +2,7 @@
 title: "概要"
 ---
 
-{{ $profileName := .Site.Params.profile_image | default "profile.jpg" }}
-{{ $profile := printf "static/img/%s" $profileName }}
-{{ if fileExists $profile }}
-<div class="profile-wrapper">
-  <img src="{{ printf "img/%s" $profileName | relURL }}" alt="プロフィール画像" class="profile-photo">
-</div>
-{{ end }}
+{{< profile-image >}}
 
 ## 機能
 
