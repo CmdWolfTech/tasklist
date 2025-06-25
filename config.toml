@@ -9,7 +9,7 @@ enableGitInfo = true
   home = ["HTML", "JSON", "SITEMAP"]
 
 [sitemap]
-  changefreq = "monthly"
+#  changefreq = "monthly"
   priority = 0.5
   filename = "sitemap.xml"
 
