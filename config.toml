@@ -12,6 +12,7 @@ enableGitInfo = true
   description = "sample"
   logo_text = "Logo_text"
   copyLight = "2025 ProjectBoard. Made with"
+  profile_image = "profile.jpg"
 
   [params.social]
     twitter  = "https://twitter.com/yourhandle"
