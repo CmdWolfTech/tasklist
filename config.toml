@@ -25,16 +25,16 @@ googleAnalytics = "G-XXXXXXXXXX"
   keywords = ["キーワード1", "キーワード2", "キーワード3"]
 
   [params.social]
-    twitter  = "https://twitter.com/yourhandle"
-    facebook = "https://facebook.com/yourhandle"
-    instagram = "https://instagram.com/yourhandle"
-    threads   = "https://www.threads.net/@yourhandle"
-    youtube   = "https://youtube.com/yourchannel"
-    linkedin  = "https://linkedin.com/in/yourprofile"
-    github    = "https://github.com/yourhandle"
-    tiktok    = "https://tiktok.com/@yourhandle"
-    note      = "https://note.com/yourhandle"
-    bluesky   = "https://bsky.app/profile/yourhandle"
+    twitter  = "yourhandle"
+    facebook = "yourhandle"
+    instagram = "yourhandle"
+    threads   = "yourhandle"
+    youtube   = "yourchannel"
+    linkedin  = "yourprofile"
+    github    = "yourhandle"
+    tiktok    = "yourhandle"
+    note      = "yourhandle"
+    bluesky   = "yourhandle"
 
   [params.opengraph]
     enable = true
