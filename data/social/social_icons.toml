@@ -1,0 +1,49 @@
+[[social_icons]]
+id = "twitter"
+url = "https://twitter.com/%s"
+title = "Twitter"
+
+[[social_icons]]
+id = "facebook"
+url = "https://facebook.com/%s"
+title = "Facebook"
+
+[[social_icons]]
+id = "instagram"
+url = "https://instagram.com/%s"
+title = "Instagram"
+
+[[social_icons]]
+id = "threads"
+url = "https://www.threads.net/@%s"
+title = "Threads"
+
+[[social_icons]]
+id = "youtube"
+url = "https://youtube.com/%s"
+title = "YouTube"
+
+[[social_icons]]
+id = "linkedin"
+url = "https://linkedin.com/in/%s"
+title = "LinkedIn"
+
+[[social_icons]]
+id = "github"
+url = "https://github.com/%s"
+title = "GitHub"
+
+[[social_icons]]
+id = "tiktok"
+url = "https://tiktok.com/@%s"
+title = "TikTok"
+
+[[social_icons]]
+id = "note"
+url = "https://note.com/%s"
+title = "Note"
+
+[[social_icons]]
+id = "bluesky"
+url = "https://bsky.app/profile/%s"
+title = "Bluesky"

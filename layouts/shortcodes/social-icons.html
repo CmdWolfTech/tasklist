@@ -1,8 +1,10 @@
 {{ $social := site.Params.social }}
 {{ $links := slice }}
-{{ range $key, $url := $social }}
-  {{ if $url }}
-    {{ $links = $links | append (dict "key" $key "url" $url) }}
+{{ range site.Data.social.social_icons }}
+  {{ $handle := index $social .id }}
+  {{ if $handle }}
+    {{ $url := cond (or (hasPrefix $handle "http://") (hasPrefix $handle "https://")) $handle (printf .url $handle) }}
+    {{ $links = $links | append (dict "key" .id "url" $url) }}
   {{ end }}
 {{ end }}
 {{ if gt (len $links) 0 }}
