@@ -467,3 +467,12 @@ body {
         object-fit: cover;
         border-radius: 50%;
 }
+
+/* Member List */
+.members-list {
+        padding: 2em 0;
+}
+
+.member-item {
+        margin-bottom: 1.5rem;
+}

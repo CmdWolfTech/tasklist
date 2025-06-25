@@ -25,4 +25,6 @@ title: "概要"
 
 </div>
 
+{{< member >}}
+
 {{< social-icons >}}

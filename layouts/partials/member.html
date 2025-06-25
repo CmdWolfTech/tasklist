@@ -1,0 +1,11 @@
+<section class="members-list">
+  <h2 class="section-title">Members</h2>
+  <div class="member-items">
+    {{ range (site.GetPage "section" "member").Pages }}
+      <div class="member-item">
+        <h3>{{ .Title }}</h3>
+        <div class="member-bio">{{ .Content | markdownify }}</div>
+      </div>
+    {{ end }}
+  </div>
+</section>
