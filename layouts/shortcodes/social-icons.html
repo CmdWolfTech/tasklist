@@ -1,7 +1,7 @@
 {{ $social := .Site.Params.social }}
 {{ $links := slice }}
 {{ range .Site.Data.social.social_icons }}
-  {{ $id := index . "id" }}
+  {{ $id := .id }}
   {{ $handle := index $social $id }}
   {{ if $handle }}
     {{ $url := cond (or (hasPrefix $handle "http://") (hasPrefix $handle "https://")) $handle (printf .url $handle) }}
