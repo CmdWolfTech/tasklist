@@ -2,7 +2,16 @@
   <h2 class="section-title">Members</h2>
   <div class="member-items">
     {{ range (site.GetPage "section" "member").Pages }}
+      {{ $member := . }}
       <div class="member-item">
+        {{ with $member.Params.image }}
+          {{ $img := printf "static/img/%s" . }}
+          {{ if fileExists $img }}
+            <div class="member-photo-wrapper">
+              <img src="{{ printf "img/%s" . | relURL }}" alt="{{ $member.Title }}" class="member-photo">
+            </div>
+          {{ end }}
+        {{ end }}
         <h3>{{ .Title }}</h3>
         <div class="member-bio">{{ .Content | markdownify }}</div>
       </div>
