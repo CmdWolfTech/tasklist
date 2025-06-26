@@ -1,6 +1,6 @@
-{{ $social := site.Params.social }}
+{{ $social := .Site.Params.social }}
 {{ $links := slice }}
-{{ range site.Data.social.social_icons }}
+{{ range .Site.Data.social.social_icons }}
   {{ $handle := index $social .id }}
   {{ if $handle }}
     {{ $url := cond (or (hasPrefix $handle "http://") (hasPrefix $handle "https://")) $handle (printf .url $handle) }}
