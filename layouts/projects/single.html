@@ -104,12 +104,49 @@
         </a>
       </li>
 
+      <!-- Threads -->
+      <li>
+        <a href="//www.threads.net/intent/post?text={{ .Title }}%20{{ .Permalink }}%20%23{{ .Site.Params.social.threads }}" target="_blank" title="Share on Threads">
+          <img src="{{ "icons/threads.svg" | relURL }}" alt="threads icon" class="icon">
+        </a>
+      </li>
+
       <!-- LinkedIn -->
       <li>
         <a href="//www.linkedin.com/shareArticle?url={{ .Permalink }}&amp;title={{ .Title }}" target="_blank" title="Share on LinkedIn">
           <img src="{{ "icons/linkedin.svg" | relURL }}" alt="linkedin icon" class="icon">
         </a>
       </li>
+
+      <!-- note -->
+      <li>
+        <a href="//note.com/intent/social_button" data-url="{{ .Permalink }}" target="_blank" title="Share on Note"></a>
+          <img src="{{ "icons/note.svg" | relURL }}" alt="note icon" class="icon">
+        </a>
+      </li>
+
+      <!-- bluesky -->
+      <li>
+        <a href="//bsky.app/intent/compose?text={{ .Title }}%20{{ .Permalink }}%20%23{{ .Site.Params.social.bluesky }}" target="_blank" title="Share on Bluesky"></a>
+        <img src="{{ "icons/bluesky.svg" | relURL }}" alt="bluesky icon" class="icon">
+        </a>
+      </li>
+
+      <!-- line -->
+      <li>
+        <a href="//line.me/R/share?text={{ .Title }}%20{{ .Permalink }}" target="_blank"
+          title="Share on Line"></a>
+        <img src="{{ "icons/line.svg" | relURL }}" alt="line icon" class="icon">
+        </a>
+      </li>
+
+      <!-- Mastodon -->
+      <li>
+        <a href="//mstdn.jp/share?text={{ .Title }}%20{{ .Permalink }}" target="_blank" title="Share on Mastodon"></a>
+        <img src="{{ "icons/mastodon.svg" | relURL }}" alt="mastodon icon" class="icon">
+        </a>
+      </li>
+
     </ul>
   </div>
   {{ end }}

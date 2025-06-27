@@ -36,6 +36,8 @@ googleAnalytics = "G-XXXXXXXXXX"
     tiktok    = "yourhandle"
     note      = "yourhandle"
     bluesky   = "yourhandle"
+    mastodon  = "yourhandle"
+    mastodonURL  = "serverName"
 
   [params.opengraph]
     enable = true

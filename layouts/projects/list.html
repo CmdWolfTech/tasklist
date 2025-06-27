@@ -5,6 +5,7 @@
         {{ partial "task-table.html" . }}
 </section>
 <div class="back-link">
-        <a href="{{ "/" | relLangURL }}">&larr; {{ i18n "Back"}}</a>
+        <a href="{{ .Site.Home.Permalink }}">&larr; {{ i18n "Back" }}</a>
+        <!-- <p>{{ printf "Lang: %s, HomePermalink: %s" .Site.Language.Lang .Site.Home.Permalink }}、"{{ "/" |  relLangURL }}"</p> -->
 </div>
 {{ end }}

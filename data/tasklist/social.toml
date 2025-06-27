@@ -47,3 +47,8 @@ title = "Note"
 id = "bluesky"
 url = "https://bsky.app/profile/%s"
 title = "Bluesky"
+
+[[social_icons]]
+id = "mastodon"
+url = "https://{{ .Site.Params.social.mastodonURL }}/@%s"
+title = "Mastodon"
