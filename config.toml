@@ -23,6 +23,7 @@ googleAnalytics = "G-XXXXXXXXXX"
   profile_image = "profile.png"
   author = "あなたの名前"
   keywords = ["キーワード1", "キーワード2", "キーワード3"]
+  socialShare = true
 
   [params.social]
     twitter  = "yourhandle"

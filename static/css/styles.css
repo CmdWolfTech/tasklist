@@ -522,12 +522,13 @@ body {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        text-decoration: none;
+        transition: opacity 0.3s;
+}
+
+.share .icon {
         width: 32px;
         height: 32px;
-        color: #fff;
-        background-color: #555;
-        border-radius: 50%;
-        text-decoration: none;
         transition: opacity 0.3s;
 }
 
