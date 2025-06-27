@@ -503,3 +503,34 @@ body {
         object-fit: cover;
         border-radius: 50%;
 }
+
+/* Social share buttons */
+.share-box {
+        margin-top: 1rem;
+        text-align: center;
+}
+
+.share {
+        list-style: none;
+        padding-left: 0;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+}
+
+.share li a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        color: #fff;
+        background-color: #555;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: opacity 0.3s;
+}
+
+.share li a:hover {
+        opacity: 0.8;
+}
