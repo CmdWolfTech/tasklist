@@ -1,18 +1,12 @@
 {{ $social := .Site.Params.social }}
-{{ $links := slice }}
-{{ range .Site.Data.social.social_icons }}
-  {{ $id := .id }}
-  {{ $handle := index $social $id }}
-  {{ if $handle }}
-    {{ $url := cond (or (hasPrefix $handle "http://") (hasPrefix $handle "https://")) $handle (printf .url $handle) }}
-    {{ $links = $links | append (dict "key" $id "url" $url) }}
-  {{ end }}
-{{ end }}
-{{ if gt (len $links) 0 }}
+{{ $icons := where .Site.Data.social.social_icons "id" "in" (keys $social) }}
+{{ if gt (len $icons) 0 }}
 <div class="social-icons">
-  {{ range $links }}
-    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .key }}">
-      <img src="{{ printf "icons/%s.svg" .key | relURL }}" alt="{{ .key }} icon" class="icon">
+  {{ range $icons }}
+    {{ $handle := index $social .id }}
+    {{ $url := cond (or (hasPrefix $handle "http://") (hasPrefix $handle "https://")) $handle (printf .url $handle) }}
+    <a href="{{ $url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .id }}">
+      <img src="{{ printf "icons/%s.svg" .id | relURL }}" alt="{{ .id }} icon" class="icon">
     </a>
   {{ end }}
 </div>
