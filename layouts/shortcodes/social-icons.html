@@ -1,5 +1,9 @@
 {{ $social := .Site.Params.social }}
-{{ $icons := where .Site.Data.social.social_icons "id" "in" (keys $social) }}
+{{ $keys := slice }}
+{{ range $k, $_ := $social }}
+  {{ $keys = $keys | append $k }}
+{{ end }}
+{{ $icons := where .Site.Data.social.social_icons "id" "in" $keys }}
 {{ if gt (len $icons) 0 }}
 <div class="social-icons">
   {{ range $icons }}
