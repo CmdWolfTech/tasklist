@@ -33,6 +33,8 @@
   translation: "低"
 - id: Back
   translation: "戻る"
+- id: BackToTop
+  translation: "トップへ戻る"
 - id: Start
   translation: "開始日"
 - id: End
