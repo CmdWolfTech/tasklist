@@ -618,12 +618,17 @@ body {
 }
 
 .blog-post .post-header {
-        text-align: center;
+        text-align: left;
         margin-bottom: 2rem;
 }
 
 .blog-post .post-content {
         line-height: 1.8;
+}
+
+.blog-post .post-content img {
+        max-width: 100%;
+        height: auto;
 }
 
 .blog-post .post-hero img {
