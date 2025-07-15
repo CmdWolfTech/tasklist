@@ -48,6 +48,11 @@ googleAnalytics = "G-XXXXXXXXXX"
     site = "@your_twitter_id"
     image = "profile.png"
 
+  [params.blog]
+    showDates = true
+    showTags = true
+    rss = true
+
 [languages]
   [languages.ja]
     languageName = "日本語"
@@ -66,6 +71,11 @@ googleAnalytics = "G-XXXXXXXXXX"
         name = "検索"
         url = "/ja/search/"
         weight = 2
+      [[languages.ja.menu.main]]
+        identifier = "blog"
+        name = "ブログ"
+        url = "/ja/blog/"
+        weight = 3
 
   [languages.en]
     languageName = "English"
@@ -84,3 +94,8 @@ googleAnalytics = "G-XXXXXXXXXX"
         name = "Search"
         url = "/en/search/"
         weight = 2
+      [[languages.en.menu.main]]
+        identifier = "blog"
+        name = "Blog"
+        url = "/en/blog/"
+        weight = 3

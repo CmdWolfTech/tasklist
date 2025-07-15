@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section class="blog-list">
+  <h2 class="section-title">{{ .Title }}</h2>
+  {{ if .Site.Params.blog.rss }}
+    <p><a href="{{ .RelPermalink }}index.xml">RSS</a></p>
+  {{ end }}
+  <ul>
+    {{ range .Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ if $.Site.Params.blog.showDates }}- {{ .Date.Format "2006-01-02" }}{{ end }}
+      </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

@@ -47,3 +47,7 @@
   translation: "親タスク"
 - id: ChildTasks
   translation: "子タスク"
+- id: Published
+  translation: "作成日"
+- id: Blog
+  translation: "ブログ"
