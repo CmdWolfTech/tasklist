@@ -14,12 +14,12 @@
       {{ if and (.Site.Params.blog.showDates) (.Lastmod) }}
         <time class="post-updated">{{ i18n "LastUpdated" }}: {{ .Lastmod.Format "2006-01-02" }}</time>
       {{ end }}
-      {{ with .Params.tags }}{{ if $.Site.Params.blog.showTags }}
-        <span class="tags">
-          {{ range $index, $tag := . }}{{ if $index }}, {{ end }}<span class="tag">{{ $tag }}</span>{{ end }}
-        </span>
-      {{ end }}{{ end }}
     </div>
+    {{ with .Params.tags }}{{ if $.Site.Params.blog.showTags }}
+      <div class="post-tags">
+        {{ range $index, $tag := . }}{{ if $index }}, {{ end }}<span class="tag">{{ $tag }}</span>{{ end }}
+      </div>
+    {{ end }}{{ end }}
   </header>
   <div class="post-content">
     {{ .Content }}
