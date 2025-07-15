@@ -47,3 +47,7 @@
   translation: "Parent Task"
 - id: ChildTasks
   translation: "Child Tasks"
+- id: Published
+  translation: "Published"
+- id: Blog
+  translation: "Blog"

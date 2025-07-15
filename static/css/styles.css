@@ -535,3 +535,18 @@ body {
 .share li a:hover {
         opacity: 0.8;
 }
+
+/* Blog */
+.blog-post {
+        margin-bottom: 2rem;
+}
+
+.post-meta {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+}
+
+.post-meta .tag {
+        margin-right: 0.25rem;
+}
