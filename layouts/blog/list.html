@@ -2,15 +2,17 @@
 <section class="blog-list">
   <h2 class="section-title">{{ .Title }}</h2>
   {{ if .Site.Params.blog.rss }}
-    <p><a href="{{ .RelPermalink }}index.xml">RSS</a></p>
+    <p class="rss-link"><a href="{{ .RelPermalink }}index.xml">RSS</a></p>
   {{ end }}
-  <ul>
+  <div class="blog-items">
     {{ range .Pages }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        {{ if $.Site.Params.blog.showDates }}- {{ .Date.Format "2006-01-02" }}{{ end }}
-      </li>
+      <article class="blog-item">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{ if $.Site.Params.blog.showDates }}
+          <p class="date">{{ .Date.Format "2006-01-02" }}</p>
+        {{ end }}
+      </article>
     {{ end }}
-  </ul>
+  </div>
 </section>
 {{ end }}
