@@ -715,3 +715,29 @@ body {
 .read-more:hover {
         text-decoration: underline;
 }
+
+/* Back to Top button */
+.back-to-top {
+        position: fixed;
+        right: 1.5rem;
+        bottom: 1.5rem;
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        background-color: #000;
+        color: #fff;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+}
+
+.back-to-top:hover {
+        background-color: #333;
+}
+
+.back-to-top.show {
+        display: flex;
+}

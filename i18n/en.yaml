@@ -33,6 +33,8 @@
   translation: "Low"
 - id: Back
   translation: "Back"
+- id: BackToTop
+  translation: "Back to top"
 - id: Start
   translation: "Start"
 - id: End
