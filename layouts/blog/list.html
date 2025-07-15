@@ -6,20 +6,20 @@
   {{ end }}
   <div class="blog-items">
     {{ range .Pages }}
-      <article class="blog-item">
+      <div class="card">
+        {{ with index .Params.tags 0 }}
+          <div class="label">{{ . }}</div>
+        {{ end }}
+        {{ if $.Site.Params.blog.showDates }}
+          <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+        {{ end }}
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <div class="meta">
-          {{ if $.Site.Params.blog.showDates }}
-            <span class="date">{{ .Date.Format "2006-01-02" }}</span>
-          {{ end }}
-          {{ with .Params.tags }}{{ if $.Site.Params.blog.showTags }}
-            <span class="tags">
-              {{ range $index, $tag := . }}<span class="tag">{{ $tag }}</span>{{ end }}
-            </span>
-          {{ end }}{{ end }}
+        <div class="desc">{{ .Summary }}</div>
+        <div class="author">
+          <span class="author-icon"></span>{{ with .Params.author }}{{ . }}{{ else }}{{ $.Site.Params.author }}{{ end }}
         </div>
-        <p class="read-more"><a href="{{ .RelPermalink }}">{{ i18n "ReadMore" }}</a></p>
-      </article>
+        <a class="read-more" href="{{ .RelPermalink }}">{{ i18n "ReadMore" }}</a>
+      </div>
     {{ end }}
   </div>
 </section>
