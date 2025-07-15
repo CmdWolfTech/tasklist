@@ -625,3 +625,25 @@ body {
 .blog-post .post-content {
         line-height: 1.8;
 }
+
+.blog-post .post-hero img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+}
+
+.blog-post .post-meta {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        color: #666;
+}
+
+.blog-post .post-meta .tag {
+        margin-right: 0.25rem;
+}
+
+.blog-post .post-meta time {
+        margin-right: 0.5rem;
+}
