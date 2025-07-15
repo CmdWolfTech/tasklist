@@ -51,3 +51,5 @@
   translation: "作成日"
 - id: Blog
   translation: "ブログ"
+- id: ReadMore
+  translation: "続きを読む"

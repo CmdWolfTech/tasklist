@@ -51,3 +51,5 @@
   translation: "Published"
 - id: Blog
   translation: "Blog"
+- id: ReadMore
+  translation: "Read more"

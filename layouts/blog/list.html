@@ -8,9 +8,17 @@
     {{ range .Pages }}
       <article class="blog-item">
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        {{ if $.Site.Params.blog.showDates }}
-          <p class="date">{{ .Date.Format "2006-01-02" }}</p>
-        {{ end }}
+        <div class="meta">
+          {{ if $.Site.Params.blog.showDates }}
+            <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+          {{ end }}
+          {{ with .Params.tags }}{{ if $.Site.Params.blog.showTags }}
+            <span class="tags">
+              {{ range $index, $tag := . }}<span class="tag">{{ $tag }}</span>{{ end }}
+            </span>
+          {{ end }}{{ end }}
+        </div>
+        <p class="read-more"><a href="{{ .RelPermalink }}">{{ i18n "ReadMore" }}</a></p>
       </article>
     {{ end }}
   </div>
