@@ -640,10 +640,17 @@ body {
         color: #666;
 }
 
-.blog-post .post-meta .tag {
-        margin-right: 0.25rem;
+.blog-post .post-meta time {
+        display: block;
+        margin-bottom: 0.25rem;
 }
 
-.blog-post .post-meta time {
-        margin-right: 0.5rem;
+.blog-post .post-tags {
+        font-size: 0.9rem;
+        color: #666;
+        margin-top: 0.25rem;
+}
+
+.blog-post .post-tags .tag {
+        margin-right: 0.25rem;
 }
