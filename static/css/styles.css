@@ -614,6 +614,7 @@ body {
 .blog-post {
         margin: 0 auto 2rem;
         max-width: 800px;
+        text-align: left;
 }
 
 .blog-post .post-header {
