@@ -5,7 +5,6 @@ defaultContentLanguage = "ja"
 defaultContentLanguageInSubdir = true
 enableGitInfo = true
 enableRobotsTXT = true
-googleTagManager = ""
 
 [outputs]
   home = ["HTML", "JSON", "SITEMAP", "ROBOTS"]
@@ -24,6 +23,7 @@ googleTagManager = ""
   author = "あなたの名前"
   keywords = ["キーワード1", "キーワード2", "キーワード3"]
   socialShare = true
+  googleTagManager = "GTM-XXXXXXX"
 
   [params.social]
     twitter  = "yourhandle"
