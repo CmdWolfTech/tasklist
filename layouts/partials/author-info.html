@@ -1,0 +1,24 @@
+{{ $authorName := .Params.author | default $.Site.Params.author }}
+{{ $img := "" }}
+{{ if .Params.author }}
+  {{ $member := site.GetPage (printf "member/%s" .Params.author) }}
+  {{ if $member }}
+    {{ with $member.Params.image }}
+      {{ $path := printf "static/img/%s" . }}
+      {{ if fileExists $path }}
+        {{ $img = printf "img/%s" . | relURL }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ if eq $img "" }}
+  {{ $default := $.Site.Params.profile_image | default "profile.png" }}
+  {{ $dpath := printf "static/img/%s" $default }}
+  {{ if fileExists $dpath }}
+    {{ $img = printf "img/%s" $default | relURL }}
+  {{ end }}
+{{ end }}
+<div class="author">
+  {{ if $img }}<img class="author-icon" src="{{ $img }}" alt="{{ $authorName }}">{{ else }}<span class="author-icon"></span>{{ end }}
+  {{ $authorName }}
+</div>
