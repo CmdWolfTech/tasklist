@@ -18,11 +18,12 @@
 	<!-- Static CSS（static/ 配下にある場合） -->
         <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
         <link rel="stylesheet" href="{{ "css/search.css" | relURL }}">
-        {{ template "_internal/google_analytics.html" . }}
+        {{ partial "gtm-head.html" . }}
 </head>
 
 <body>
-	<header class="site-header">
+        {{ partial "gtm-body.html" . }}
+        <header class="site-header">
 		<div class="container header-inner">
 			<h1 class="logo"><a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a></h1>
                <nav class="main-nav">
