@@ -619,8 +619,8 @@ body {
 }
 
 .blog-items .author-icon {
-        width: 24px;
-        height: 24px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         background-color: #d1d5db;
         margin-right: 0.5rem;
@@ -688,6 +688,7 @@ body {
         font-size: 0.9rem;
         color: #666;
         margin-top: 0.25rem;
+        margin-bottom: 0.5rem;
 }
 
 .blog-post .post-tags .tag {
@@ -703,8 +704,8 @@ body {
 }
 
 .blog-post .author-icon {
-        width: 24px;
-        height: 24px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         background-color: #d1d5db;
         margin-right: 0.5rem;

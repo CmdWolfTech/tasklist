@@ -15,9 +15,7 @@
         {{ end }}{{ end }}
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <div class="desc">{{ .Summary }}</div>
-        <div class="author">
-          <span class="author-icon"></span>{{ with .Params.author }}{{ . }}{{ else }}{{ $.Site.Params.author }}{{ end }}
-        </div>
+        {{ partial "author-info.html" . }}
         <a class="read-more" href="{{ .RelPermalink }}">{{ i18n "ReadMore" }}</a>
       </div>
     {{ end }}

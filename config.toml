@@ -67,14 +67,14 @@ googleAnalytics = "G-XXXXXXXXXX"
         url = "/ja/about/"
         weight = 1
       [[languages.ja.menu.main]]
-        identifier = "search"
-        name = "検索"
-        url = "/ja/search/"
-        weight = 2
-      [[languages.ja.menu.main]]
         identifier = "blog"
         name = "ブログ"
         url = "/ja/blog/"
+        weight = 2
+      [[languages.ja.menu.main]]
+        identifier = "search"
+        name = "検索"
+        url = "/ja/search/"
         weight = 3
 
   [languages.en]
@@ -90,12 +90,12 @@ googleAnalytics = "G-XXXXXXXXXX"
         url = "/en/about/"
         weight = 1
       [[languages.en.menu.main]]
-        identifier = "search"
-        name = "Search"
-        url = "/en/search/"
-        weight = 2
-      [[languages.en.menu.main]]
         identifier = "blog"
         name = "Blog"
         url = "/en/blog/"
+        weight = 2
+      [[languages.en.menu.main]]
+        identifier = "search"
+        name = "Search"
+        url = "/en/search/"
         weight = 3
