@@ -24,6 +24,9 @@
   <div class="post-content">
     {{ .Content }}
   </div>
+
+  {{ partial "backlink-single.html" . }}
+
   {{ partial "share-buttons.html" . }}
 </article>
 {{ end }}

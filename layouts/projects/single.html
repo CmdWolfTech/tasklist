@@ -83,8 +83,8 @@
     {{ .Content }}
   </div>
 </div>
-<div class="back-link">
-  <a href="{{ .CurrentSection.RelPermalink }}">&larr; {{ i18n "Back"}}</a>
-</div>
+
+{{ partial "backlink-single.html" . }}
+
 {{ partial "share-buttons.html" . }}
 {{ end }}

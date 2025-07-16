@@ -7,12 +7,12 @@
   <div class="blog-items">
     {{ range .Pages }}
       <div class="card">
-        {{ with index .Params.tags 0 }}
-          <div class="label">{{ . }}</div>
-        {{ end }}
         {{ if $.Site.Params.blog.showDates }}
           <span class="date">{{ .Date.Format "2006-01-02" }}</span>
         {{ end }}
+        {{ with .Params.tags }}{{ if $.Site.Params.blog.showTags }}
+          {{range $index, $tag := . }}{{ if $index }}, {{ end }}<span class="tag">{{ $tag }}</span>{{ end }}
+        {{ end }}{{ end }}
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <div class="desc">{{ .Summary }}</div>
         <div class="author">
@@ -23,7 +23,7 @@
     {{ end }}
   </div>
 </section>
-<div class="back-link">
-  <a href="{{ .Site.Home.Permalink }}">&larr; {{ i18n "Back" }}</a>
-</div>
+
+{{ partial "backlink.html" . }}
+
 {{ end }}

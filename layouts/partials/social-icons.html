@@ -1,0 +1,17 @@
+{{ $social := .Site.Params.social }}
+{{ $keys := slice }}
+{{ range $k, $_ := $social }}
+  {{ $keys = $keys | append $k }}
+{{ end }}
+{{ $icons := where .Site.Data.tasklist.social.social_icons "id" "in" $keys }}
+{{ if gt (len $icons) 0 }}
+<div class="social-icons">
+  {{ range $icons }}
+    {{ $handle := index $social .id }}
+    {{ $url := cond (or (hasPrefix $handle "http://") (hasPrefix $handle "https://")) $handle (printf .url $handle) }}
+    <a href="{{ $url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .id }}">
+      <img src="{{ printf "icons/%s.svg" .id | relURL }}" alt="{{ .id }} icon" class="icon">
+    </a>
+  {{ end }}
+</div>
+{{ end }}
