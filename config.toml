@@ -5,7 +5,7 @@ defaultContentLanguage = "ja"
 defaultContentLanguageInSubdir = true
 enableGitInfo = true
 enableRobotsTXT = true
-googleAnalytics = "G-XXXXXXXXXX"
+googleTagManager = ""
 
 [outputs]
   home = ["HTML", "JSON", "SITEMAP", "ROBOTS"]
