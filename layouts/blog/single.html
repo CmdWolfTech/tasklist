@@ -20,9 +20,7 @@
         {{ range $index, $tag := . }}{{ if $index }}, {{ end }}<span class="tag">{{ $tag }}</span>{{ end }}
       </div>
     {{ end }}{{ end }}
-    <div class="author">
-      <span class="author-icon"></span>{{ with .Params.author }}{{ . }}{{ else }}{{ $.Site.Params.author }}{{ end }}
-    </div>
+    {{ partial "author-info.html" . }}
   </header>
   <div class="post-content">
     {{ .Content }}
