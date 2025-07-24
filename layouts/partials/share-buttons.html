@@ -32,14 +32,14 @@
 
       <!-- note -->
       <li>
-        <a href="//note.com/intent/social_button" data-url="{{ .Permalink }}" target="_blank" title="Share on Note"></a>
+        <a href="//note.com/intent/social_button" data-url="{{ .Permalink }}" target="_blank" title="Share on Note">
           <img src="{{ "icons/note.svg" | relURL }}" alt="note icon" class="icon">
         </a>
       </li>
 
       <!-- bluesky -->
       <li>
-        <a href="//bsky.app/intent/compose?text={{ .Title }}%20{{ .Permalink }}%20%23{{ .Site.Params.social.bluesky }}" target="_blank" title="Share on Bluesky"></a>
+        <a href="//bsky.app/intent/compose?text={{ .Title }}%20{{ .Permalink }}%20%23{{ .Site.Params.social.bluesky }}" target="_blank" title="Share on Bluesky">
         <img src="{{ "icons/bluesky.svg" | relURL }}" alt="bluesky icon" class="icon">
         </a>
       </li>
@@ -47,14 +47,14 @@
       <!-- line -->
       <li>
         <a href="//line.me/R/share?text={{ .Title }}%20{{ .Permalink }}" target="_blank"
-          title="Share on Line"></a>
+          title="Share on Line">
         <img src="{{ "icons/line.svg" | relURL }}" alt="line icon" class="icon">
         </a>
       </li>
 
       <!-- Mastodon -->
       <li>
-        <a href="//mstdn.jp/share?text={{ .Title }}%20{{ .Permalink }}" target="_blank" title="Share on Mastodon"></a>
+        <a href="//mstdn.jp/share?text={{ .Title }}%20{{ .Permalink }}" target="_blank" title="Share on Mastodon">
         <img src="{{ "icons/mastodon.svg" | relURL }}" alt="mastodon icon" class="icon">
         </a>
       </li>

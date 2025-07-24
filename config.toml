@@ -27,7 +27,7 @@ enableRobotsTXT = true
 
   [params.social]
     twitter  = "yourhandle"
-    facebook = "yourhandle"
+#    facebook = "yourhandle"
 #    instagram = "yourhandle"
 #    threads   = "yourhandle"
     youtube   = "yourchannel"
