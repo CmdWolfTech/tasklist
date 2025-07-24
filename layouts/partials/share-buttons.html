@@ -4,7 +4,7 @@
     <ul class="share">
       <!-- Twitter -->
       <li>
-        <a href="//twitter.com/share?url={{ .Permalink }}&amp;text={{ .Title }}&amp;via={{ .Site.Params.social.twitter }}" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url={{ .Permalink }}&amp;text={{ .Title }}{{ with .Site.Params.social.twitter }}&amp;via={{ . }}{{ end }}" target="_blank" title="Share on Twitter">
           <img src="{{ "icons/twitter.svg" | relURL }}" alt="twitter icon" class="icon">
         </a>
       </li>
@@ -18,7 +18,7 @@
 
       <!-- Threads -->
       <li>
-        <a href="//www.threads.net/intent/post?text={{ .Title }}%20{{ .Permalink }}%20%23{{ .Site.Params.social.threads }}" target="_blank" title="Share on Threads">
+        <a href="//www.threads.net/intent/post?text={{ .Title }}%20{{ .Permalink }}{{ with .Site.Params.social.threads }}%20%23{{ . }}{{ end }}" target="_blank" title="Share on Threads">
           <img src="{{ "icons/threads.svg" | relURL }}" alt="threads icon" class="icon">
         </a>
       </li>
@@ -32,14 +32,15 @@
 
       <!-- note -->
       <li>
-        <a href="//note.com/intent/social_button" data-url="{{ .Permalink }}" target="_blank" title="Share on Note">
+        <a href="//note.com/intent/social_button" class="note-social-button" data-url="{{ .Permalink }}" target="_blank" title="Share on Note">
+          <script async src="https://cdn.st-note.com/js/social_button.min.js"></script>
           <img src="{{ "icons/note.svg" | relURL }}" alt="note icon" class="icon">
         </a>
       </li>
 
       <!-- bluesky -->
       <li>
-        <a href="//bsky.app/intent/compose?text={{ .Title }}%20{{ .Permalink }}%20%23{{ .Site.Params.social.bluesky }}" target="_blank" title="Share on Bluesky">
+        <a href="//bsky.app/intent/compose?text={{ .Title }}%20{{ .Permalink }}{{ with .Site.Params.social.bluesky }}%20%23{{ . }}{{ end }}" target="_blank" title="Share on Bluesky">
         <img src="{{ "icons/bluesky.svg" | relURL }}" alt="bluesky icon" class="icon">
         </a>
       </li>
