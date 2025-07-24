@@ -40,7 +40,9 @@
                                         <select id="lang-switcher" onchange="location.href=this.value">
                                         {{ $current := . }}
                                         {{ range $.Site.Home.AllTranslations }}
-                                        {{ $trans := (where $current.AllTranslations "Lang" .Lang) | first }}
+                                        {{ $trans := "" }}
+                                        {{ $filtered := where $current.AllTranslations "Lang" .Lang }}
+                                        {{ if gt (len $filtered) 0 }}{{ $trans = index $filtered 0 }}{{ end }}
                                         <option value="{{ if $trans }}{{ $trans.RelPermalink }}{{ else }}{{ .RelPermalink }}{{ end }}" {{ if eq .Lang $.Site.Language.Lang }}selected{{ end }}>{{
                                                 .Language.LanguageName }}</option>
                                         {{ end }}
