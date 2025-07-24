@@ -312,6 +312,26 @@ body {
         padding: 2em 0;
 }
 
+/* Indent lists within content for readability */
+.page-content ul,
+.page-content ol,
+.blog-post .post-content ul,
+.blog-post .post-content ol,
+.task-details-value ul,
+.task-details-value ol,
+.task-description ul,
+.task-description ol {
+        margin-left: 1.5em;
+        padding-left: 1em;
+}
+
+.page-content li,
+.blog-post .post-content li,
+.task-details-value li,
+.task-description li {
+        margin-bottom: 0.5em;
+}
+
 /* Task Counts */
 .task-counts {
         display: flex;
