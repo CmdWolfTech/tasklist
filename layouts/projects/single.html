@@ -18,11 +18,11 @@
   <div class="task-details-info">
     <div class="task-details-item">
       <div class="task-details-label">{{ i18n "Start" }}</div>
-      <div class="task-details-value">{{ .Params.start }}</div>
+      <div class="task-details-value">{{ (time .Params.start).Format (i18n "dateFormat") }}</div>
     </div>
     <div class="task-details-item">
       <div class="task-details-label">{{ i18n "End" }}</div>
-      <div class="task-details-value">{{ .Params.end }}</div>
+      <div class="task-details-value">{{ (time .Params.end).Format (i18n "dateFormat") }}</div>
     </div>
     <div class="task-details-item">
       <div class="task-details-label">{{ i18n "Period" }}</div>
@@ -36,9 +36,9 @@
       <div class="task-details-label">{{ i18n "LastUpdated" }}</div>
       <div class="task-details-value">
         {{ with .Params.lastmod }}
-          {{ . | time.Format "2006-01-02" }}
+          {{ . | time.Format (i18n "dateFormat") }}
         {{ else }}
-          {{ .Lastmod.Format "2006-01-02" }}
+          {{ .Lastmod.Format (i18n "dateFormat") }}
         {{ end }}
       </div>
     </div>

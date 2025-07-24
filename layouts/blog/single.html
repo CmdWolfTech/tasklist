@@ -9,10 +9,10 @@
     <h1>{{ .Title }}</h1>
     <div class="post-meta">
       {{ if and (.Site.Params.blog.showDates) (.Date) }}
-        <time class="post-date">{{ i18n "Published" }}: {{ .Date.Format "2006-01-02" }}</time>
+        <time class="post-date">{{ i18n "Published" }}: {{ .Date.Format (i18n "dateFormat") }}</time>
       {{ end }}
       {{ if and (.Site.Params.blog.showDates) (.Lastmod) }}
-        <time class="post-updated">{{ i18n "LastUpdated" }}: {{ .Lastmod.Format "2006-01-02" }}</time>
+        <time class="post-updated">{{ i18n "LastUpdated" }}: {{ .Lastmod.Format (i18n "dateFormat") }}</time>
       {{ end }}
     </div>
     {{ with .Params.tags }}{{ if $.Site.Params.blog.showTags }}
