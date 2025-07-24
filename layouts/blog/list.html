@@ -8,7 +8,7 @@
     {{ range .Pages }}
       <div class="card">
         {{ if $.Site.Params.blog.showDates }}
-          <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+          <span class="date">{{ .Date.Format (i18n "dateFormat") }}</span>
         {{ end }}
         {{ with .Params.tags }}{{ if $.Site.Params.blog.showTags }}
           {{range $index, $tag := . }}{{ if $index }}, {{ end }}<span class="tag">{{ $tag }}</span>{{ end }}

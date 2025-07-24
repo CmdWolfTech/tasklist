@@ -23,7 +23,9 @@
         <div class="card">
             <div class="card-body">
                 <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-                <p class="project-dates">{{ $start }} - {{ $end }}</p>
+                <p class="project-dates">
+                    {{ if $start }}{{ (time $start).Format (i18n "dateFormat") }}{{ end }} - {{ if $end }}{{ (time $end).Format (i18n "dateFormat") }}{{ end }}
+                </p>
                 {{ partial "task-count.html" . }}
                 {{ partial "gantt-progress.html" . }}
             </div>

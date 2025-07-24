@@ -17,7 +17,7 @@
         {{ $children := where $pages "Params.parent" .File.BaseFileName }}
         <tr>
             <td><a href="{{ .RelPermalink }}">{{ .Params.title }}</a></td>
-            <td>{{ .Params.start }} - {{ .Params.end }}</td>
+            <td>{{ (time .Params.start).Format (i18n "dateFormat") }} - {{ (time .Params.end).Format (i18n "dateFormat") }}</td>
             <td>
                 <span class="status status-{{ if eq .Params.status "completed" }}completed{{ else if eq .Params.status "in-progress" }}in-progress{{
                     else }}not-started{{ end }}">
