@@ -38,8 +38,10 @@
                                 </li>
                                 <li>
                                         <select id="lang-switcher" onchange="location.href=this.value">
+                                        {{ $current := . }}
                                         {{ range $.Site.Home.AllTranslations }}
-                                        <option value="{{ .RelPermalink }}" {{ if eq .Lang $.Site.Language.Lang }}selected{{ end }}>{{
+                                        {{ $trans := (where $current.AllTranslations "Lang" .Lang) | first }}
+                                        <option value="{{ if $trans }}{{ $trans.RelPermalink }}{{ else }}{{ .RelPermalink }}{{ end }}" {{ if eq .Lang $.Site.Language.Lang }}selected{{ end }}>{{
                                                 .Language.LanguageName }}</option>
                                         {{ end }}
                                         </select>
