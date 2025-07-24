@@ -61,6 +61,10 @@ theme = "tasklist"
     contentDir = "content/ja"
     languageCode = "ja"
 
+    [languages.ja.params]
+      description = "日本語デフォルトディスクリプション"
+      keywords = ["日本語キーワード1", "日本語キーワード2"]
+
     [languages.ja.menu]
       [[languages.ja.menu.main]]
         identifier = "about"
@@ -83,6 +87,10 @@ theme = "tasklist"
     weight = 2
     contentDir = "content/en"
     languageCode = "en"
+
+    [languages.en.params]
+      description = "Default description in English"
+      keywords = ["english-keyword1", "english-keyword2"]
 
     [languages.en.menu]
       [[languages.en.menu.main]]

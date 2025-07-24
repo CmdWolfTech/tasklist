@@ -1,5 +1,20 @@
 {{ $title := cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Title) }}
-{{ $description := .Params.description | default .Site.Params.description }}
+{{ $description := "" }}
+{{ $keywords := .Site.Params.keywords }}
+
+{{ with .Params.tags }}
+  {{ $keywords = . }}
+{{ end }}
+
+{{ with .Params.description }}
+  {{ $description = . }}
+{{ else if eq .Section "projects" }}
+  {{ with .Parent.Params.description }}
+    {{ $description = . }}
+  {{ end }}
+{{ end }}
+
+{{ $description = $description | default .Site.Params.description }}
 {{ $type := cond (or .IsHome .IsSection) "website" "article" }}
 {{ $url := .Permalink }}
 {{ $imageParam := .Site.Params.opengraph.image | default (.Site.Params.twitter_cards.image | default .Site.Params.profile_image) }}
@@ -35,7 +50,7 @@
 {{ end }}
 
 {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-{{ with .Site.Params.keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+{{ with $keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
 
 {{ if .Site.Params.twitter_cards.enable }}
   <meta name="twitter:card" content="summary_large_image">
