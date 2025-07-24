@@ -6,8 +6,8 @@
   {{ $keywords = . }}
 {{ end }}
 
-{{ with .Params.description }}
-  {{ $description = . }}
+{{ if .Params.description }}
+  {{ $description = .Params.description }}
 {{ else if eq .Section "projects" }}
   {{ with .Parent.Params.description }}
     {{ $description = . }}
