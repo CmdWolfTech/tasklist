@@ -1,4 +1,9 @@
 {{- $pages := .Site.RegularPages -}}
+{{- with .Site.Params.search.excludeSections }}
+  {{- range . }}
+    {{- $pages = where $pages "Section" "!=" . -}}
+  {{- end }}
+{{- end }}
 [
   {{- range $index, $element := $pages }}
   {

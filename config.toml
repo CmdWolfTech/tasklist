@@ -53,6 +53,9 @@ enableRobotsTXT = true
     showTags = true
     rss = true
 
+  [params.search]
+    excludeSections = ["blog"]
+
 [languages]
   [languages.ja]
     languageName = "日本語"
