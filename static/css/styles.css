@@ -524,6 +524,15 @@ body {
         border-radius: 50%;
 }
 
+/* Make entire member item clickable */
+.member-link {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
 /* Social share buttons */
 .share-box {
         margin-top: 1rem;
