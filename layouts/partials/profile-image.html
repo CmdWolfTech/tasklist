@@ -5,3 +5,6 @@
   <img src="{{ printf "img/%s" $profileName | relURL }}" alt="プロフィール画像" class="profile-photo">
 </div>
 {{ end }}
+{{ with .Site.Params.author }}
+<h1 class="profile-author">{{ . }}</h1>
+{{ end}}
