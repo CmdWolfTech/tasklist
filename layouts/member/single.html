@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="member-detail">
+  <h1 class="member-title">{{ .Title }}</h1>
+  {{ with .Params.image }}
+    {{ $img := printf "static/img/%s" . }}
+    {{ if fileExists $img }}
+      <div class="member-photo-wrapper">
+        <img src="{{ printf "img/%s" . | relURL }}" alt="{{ $.Title }}" class="member-photo">
+      </div>
+    {{ end }}
+  {{ end }}
+  <div class="member-bio">
+    {{ .Content }}
+  </div>
+</article>
+
+{{ partial "backlink-single.html" . }}
+{{ end }}
