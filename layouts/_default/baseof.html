@@ -33,9 +33,9 @@
                <nav class="main-nav">
                        <button id="menu-toggle" class="menu-toggle" aria-label="{{ i18n "openMenu" }}">&#x22EE;</button>
                        <ul>
-                                <li class="menu-close-item">
-                                        <button id="menu-close" class="menu-close" aria-label="{{ i18n "openMenu" }}">&times;</button>
-                                </li>
+                               <li class="menu-close-item">
+                                       <button id="menu-close" class="menu-close" aria-label="{{ i18n "closeMenu" }}">&#x2717; {{ i18n "closeMenu" }}</button>
+                               </li>
                                 <li>
                                         <select id="lang-switcher" onchange="location.href=this.value">
                                         {{ $current := . }}
@@ -48,9 +48,13 @@
                                         {{ end }}
                                         </select>
                                 </li>
-                                {{ range .Site.Menus.main }}
-                                <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-                                {{ end }}
+                               {{ range .Site.Menus.main }}
+                               {{ if eq .Identifier "search" }}
+                               <li class="menu-item-search"><a href="{{ .URL | relURL }}" aria-label="{{ .Name }}"><img src="{{ "img/search-icon.png" | relURL }}" alt="" class="search-icon"><span class="search-text">{{ .Name }}</span></a></li>
+                               {{ else }}
+                               <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                               {{ end }}
+                               {{ end }}
                                 <li id="today-date">
                                 </li>
                         </ul>
