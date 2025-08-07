@@ -43,13 +43,13 @@ body {
 }
 
 .main-nav li {
-        padding: 0 0.5em;
+        padding: 0 0.25em;
 }
 
 .main-nav a {
         text-decoration: none;
         color: #555;
-        padding: 0.5em 1rem;
+        padding: 0.5em 0.75rem;
         transition: background 0.3s;
 }
 
@@ -114,6 +114,10 @@ body {
 
         .main-nav li {
                 padding: 0.5em 0;
+        }
+
+        .main-nav a {
+                padding: 0.5em 1rem;
         }
 
         .menu-close-item {
