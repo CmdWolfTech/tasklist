@@ -55,3 +55,7 @@
   translation: "Blog"
 - id: ReadMore
   translation: "Read more"
+- id: openMenu
+  translation: "Open menu"
+- id: closeMenu
+  translation: "Close"
