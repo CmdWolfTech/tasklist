@@ -55,6 +55,8 @@
   translation: "ブログ"
 - id: ReadMore
   translation: "続きを読む"
+- id: ViewDetails
+  translation: "詳細を見る"
 - id: openMenu
   translation: "メニューを開く"
 - id: closeMenu
