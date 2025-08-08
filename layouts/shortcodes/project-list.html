@@ -28,6 +28,7 @@
                 </p>
                 {{ partial "task-count.html" . }}
                 {{ partial "gantt-progress.html" . }}
+                <a class="details-button" href="{{ .RelPermalink }}">{{ i18n "ViewDetails" }}</a>
             </div>
         </div>
         {{ end }}
