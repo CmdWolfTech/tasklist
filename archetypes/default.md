@@ -10,5 +10,7 @@ parent: "sample"
 tags:
   - initial
   - test
+images:
+  - /img/projects/my-project/og-image.png  # SNS 用サムネイル
 draft = true
 ---
