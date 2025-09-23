@@ -73,25 +73,15 @@ theme = "tasklist"
         url = "/ja/about/"
         weight = 1
       [[languages.ja.menu.main]]
-        identifier = "projects"
-        name = "プロジェクト"
-        url = "/ja/projects/"
-        weight = 2
-      [[languages.ja.menu.main]]
-        identifier = "dashboard"
-        name = "ダッシュボード"
-        url = "/ja/dashboard/"
-        weight = 3
-      [[languages.ja.menu.main]]
         identifier = "blog"
         name = "ブログ"
         url = "/ja/blog/"
-        weight = 4
+        weight = 2
       [[languages.ja.menu.main]]
         identifier = "search"
         name = "検索"
         url = "/ja/search/"
-        weight = 5
+        weight = 3
 
   [languages.en]
     languageName = "English"
@@ -110,22 +100,12 @@ theme = "tasklist"
         url = "/en/about/"
         weight = 1
       [[languages.en.menu.main]]
-        identifier = "projects"
-        name = "Projects"
-        url = "/en/projects/"
-        weight = 2
-      [[languages.en.menu.main]]
-        identifier = "dashboard"
-        name = "Dashboard"
-        url = "/en/dashboard/"
-        weight = 3
-      [[languages.en.menu.main]]
         identifier = "blog"
         name = "Blog"
         url = "/en/blog/"
-        weight = 4
+        weight = 2
       [[languages.en.menu.main]]
         identifier = "search"
         name = "Search"
         url = "/en/search/"
-        weight = 5
+        weight = 3
