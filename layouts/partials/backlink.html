@@ -1,4 +1,6 @@
 <div class="back-link">
-  <a href="{{ .Site.Home.Permalink }}">&larr; {{ i18n "Back" }}</a>
-  <!-- <p>{{ printf "Lang: %s, HomePermalink: %s" .Site.Language.Lang .Site.Home.Permalink }}、"{{ "/" |  relLangURL }}"</p> -->
+  <a class="button button--ghost back-link__button" href="{{ .Site.Home.RelPermalink }}">
+    <span class="back-link__icon" aria-hidden="true">&larr;</span>
+    <span>{{ i18n "Back" }}</span>
+  </a>
 </div>

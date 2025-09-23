@@ -1,3 +1,6 @@
 <div class="back-link">
-  <a href="{{ .CurrentSection.RelPermalink }}">&larr; {{ i18n "Back"}}</a>
+  <a class="button button--ghost back-link__button" href="{{ with .CurrentSection }}{{ .RelPermalink }}{{ else }}{{ .Site.Home.RelPermalink }}{{ end }}">
+    <span class="back-link__icon" aria-hidden="true">&larr;</span>
+    <span>{{ i18n "Back" }}</span>
+  </a>
 </div>
