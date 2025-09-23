@@ -118,7 +118,7 @@
         {{ end }}
 
         <footer class="project-footer">
-            <a href="{{ "projects/" | absLangURL }}" class="back-to-projects-link">{{ i18n "BackToProjects" | default "Back to projects" }}</a>
+            <a href="{{ "projects/" | absLangURL }}" class="back-to-projects-link button button--primary">{{ i18n "BackToProjects" | default "Back to projects" }}</a>
         </footer>
     </article>
 </div>
@@ -214,21 +214,6 @@
 .project-footer {
     margin-top: 3rem;
     text-align: center;
-}
-
-.back-to-projects-link {
-    display: inline-block;
-    background-color: #667eea;
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
-}
-
-.back-to-projects-link:hover {
-    background-color: #5a67d8;
 }
 
 @media (max-width: 768px) {
