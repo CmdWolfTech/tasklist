@@ -117,9 +117,7 @@
         </section>
         {{ end }}
 
-        <footer class="project-footer">
-            <a href="{{ "projects/" | absLangURL }}" class="back-to-projects-link button button--primary">{{ i18n "BackToProjects" | default "Back to projects" }}</a>
-        </footer>
+        {{ partial "backlink.html" . }}
     </article>
 </div>
 

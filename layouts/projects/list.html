@@ -13,9 +13,7 @@
         {{ end }}
     </div>
 
-    <div class="projects-list-footer">
-        <a href="{{ "projects/" | absLangURL }}" class="button button--primary projects-back-button">{{ i18n "BackToProjects" | default "Back to projects" }}</a>
-    </div>
+    {{ partial "backlink.html" . }}
 </div>
 
 <div class="project-visuals">
