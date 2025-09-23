@@ -61,3 +61,43 @@
   translation: "メニューを開く"
 - id: closeMenu
   translation: "閉じる"
+- id: backToHome
+  translation: "ホームに戻る"
+- id: HeroTitle
+  translation: "プロジェクト管理ツール - ProjectBoard"
+- id: HeroDescription
+  translation: "小規模プロジェクト管理ツール - タスクの進捗管理とプロジェクト分析ダッシュボード"
+- id: HeroCtaDashboard
+  translation: "ダッシュボードを開く"
+- id: HeroCtaProjects
+  translation: "プロジェクト一覧"
+- id: FeaturesHeading
+  translation: "主な機能"
+- id: FeatureDashboardTitle
+  translation: "ダッシュボード"
+- id: FeatureDashboardDescription
+  translation: "プロジェクトの進捗やタスク分析を視覚的に確認できます。"
+- id: FeatureTasksTitle
+  translation: "タスク管理"
+- id: FeatureTasksDescription
+  translation: "プロジェクト全体のタスクを効率的に作成・更新・管理できます。"
+- id: FeatureTeamTitle
+  translation: "チーム管理"
+- id: FeatureTeamDescription
+  translation: "チームメンバーの作業状況と生産性を把握できます。"
+- id: FeatureAnalyticsTitle
+  translation: "分析機能"
+- id: FeatureAnalyticsDescription
+  translation: "詳細なプロジェクト指標やレポート出力が可能です。"
+- id: ProjectDashboard
+  translation: "プロジェクトダッシュボード"
+- id: ProjectDashboardDescription
+  translation: "タスク進捗とプロジェクト分析のためのダッシュボード体験"
+- id: DashboardIframeUnsupported
+  translation: "お使いのブラウザはiframeをサポートしていません。"
+- id: DashboardOpenDirect
+  translation: "ダッシュボードを直接開く"
+- id: DashboardLoadFailed
+  translation: "ダッシュボードの読み込みに失敗しました"
+- id: BackToProjects
+  translation: "プロジェクト一覧に戻る"

@@ -1,0 +1,131 @@
+baseURL = "https://cmdwolftech.gitlab.io/tasklist/"
+title = "ProjectBoard"
+buildFuture = true
+defaultContentLanguage = "ja"
+defaultContentLanguageInSubdir = true
+enableGitInfo = true
+enableRobotsTXT = true
+theme = "tasklist"
+
+[outputs]
+  home = ["HTML", "JSON", "SITEMAP", "ROBOTS"]
+
+[sitemap]
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[params]
+  enableRobotsTXT = true
+  description = "小規模プロジェクト管理ツール - タスク進捗と分析に特化"
+  logo_text = "ProjectBoard"
+  copyLight = "2025 ProjectBoard. Made with"
+  profile_image = "profile.png"
+  author = "あなたの名前"
+  keywords = ["プロジェクト管理", "タスク管理", "ダッシュボード"]
+  socialShare = true
+  googleTagManager = "GTM-XXXXXXX"
+  heroTitle = "プロジェクト管理ツール - ProjectBoard"
+  heroDescription = "小規模プロジェクト管理ツール - タスクの進捗管理とプロジェクト分析ダッシュボード"
+
+  [params.social]
+    twitter  = "yourhandle"
+    facebook = "yourhandle"
+    instagram = "yourhandle"
+    threads   = "yourhandle"
+    youtube   = "yourchannel"
+    linkedin  = "yourprofile"
+    github    = "yourhandle"
+    tiktok    = "yourhandle"
+    note      = "yourhandle"
+    bluesky   = "yourhandle"
+    mastodon  = "yourhandle"
+    mastodonURL  = "serverName"
+
+  [params.opengraph]
+    enable = true
+    image = "profile.png"
+
+  [params.twitter_cards]
+    enable = true
+    site = "@your_twitter_id"
+    image = "profile.png"
+
+  [params.blog]
+    showDates = true
+    showTags = true
+    rss = true
+
+[languages]
+  [languages.ja]
+    languageName = "日本語"
+    weight = 1
+    contentDir = "content/ja"
+    languageCode = "ja"
+
+    [languages.ja.params]
+      description = "日本語デフォルトディスクリプション"
+      keywords = ["日本語キーワード1", "日本語キーワード2"]
+
+    [languages.ja.menu]
+      [[languages.ja.menu.main]]
+        identifier = "about"
+        name = "概要"
+        url = "/ja/about/"
+        weight = 1
+      [[languages.ja.menu.main]]
+        identifier = "projects"
+        name = "プロジェクト"
+        url = "/ja/projects/"
+        weight = 2
+      [[languages.ja.menu.main]]
+        identifier = "dashboard"
+        name = "ダッシュボード"
+        url = "/ja/dashboard/"
+        weight = 3
+      [[languages.ja.menu.main]]
+        identifier = "blog"
+        name = "ブログ"
+        url = "/ja/blog/"
+        weight = 4
+      [[languages.ja.menu.main]]
+        identifier = "search"
+        name = "検索"
+        url = "/ja/search/"
+        weight = 5
+
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    contentDir = "content/en"
+    languageCode = "en"
+
+    [languages.en.params]
+      description = "Default description in English"
+      keywords = ["english-keyword1", "english-keyword2"]
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/en/about/"
+        weight = 1
+      [[languages.en.menu.main]]
+        identifier = "projects"
+        name = "Projects"
+        url = "/en/projects/"
+        weight = 2
+      [[languages.en.menu.main]]
+        identifier = "dashboard"
+        name = "Dashboard"
+        url = "/en/dashboard/"
+        weight = 3
+      [[languages.en.menu.main]]
+        identifier = "blog"
+        name = "Blog"
+        url = "/en/blog/"
+        weight = 4
+      [[languages.en.menu.main]]
+        identifier = "search"
+        name = "Search"
+        url = "/en/search/"
+        weight = 5

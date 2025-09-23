@@ -1,0 +1,99 @@
+[
+  {
+    "id": 1,
+    "title": "UIデザインの作成",
+    "project": "alpha",
+    "start": "2025-05-21",
+    "end": "2025-05-23",
+    "status": "completed",
+    "assignee": "佐藤",
+    "priority": "High",
+    "tags": ["initial", "alpha"],
+    "description": "プロジェクトの初期UIデザインを作成する"
+  },
+  {
+    "id": 2,
+    "title": "バックエンド開発",
+    "project": "alpha",
+    "start": "2025-05-24",
+    "end": "2025-05-26",
+    "status": "in-progress",
+    "assignee": "鈴木",
+    "priority": "Medium",
+    "tags": ["alpha", "progress"],
+    "description": "APIの基本機能を実装する"
+  },
+  {
+    "id": 3,
+    "title": "データベース設計",
+    "project": "beta",
+    "start": "2025-06-01",
+    "end": "2025-06-05",
+    "status": "completed",
+    "assignee": "田中",
+    "priority": "High",
+    "tags": ["database", "beta"],
+    "description": "システムのデータベース構造を設計する"
+  },
+  {
+    "id": 4,
+    "title": "フロントエンド実装",
+    "project": "beta",
+    "start": "2025-06-06",
+    "end": "2025-06-10",
+    "status": "pending",
+    "assignee": "山田",
+    "priority": "Medium",
+    "tags": ["frontend", "beta"],
+    "description": "ユーザーインターフェースを実装する"
+  },
+  {
+    "id": 5,
+    "title": "テスト実行",
+    "project": "alpha",
+    "start": "2025-06-11",
+    "end": "2025-06-15",
+    "status": "pending",
+    "assignee": "佐藤",
+    "priority": "Low",
+    "tags": ["testing", "alpha"],
+    "description": "システム全体のテストを実行する"
+  },
+  {
+    "id": 6,
+    "title": "ドキュメント作成",
+    "project": "gamma",
+    "start": "2025-06-16",
+    "end": "2025-06-20",
+    "status": "completed",
+    "assignee": "鈴木",
+    "priority": "Medium",
+    "tags": ["documentation", "gamma"],
+    "description": "プロジェクトのドキュメントを作成する"
+  },
+  {
+    "id": 7,
+    "title": "セキュリティ監査",
+    "project": "gamma",
+    "start": "2025-06-21",
+    "end": "2025-06-25",
+    "status": "in-progress",
+    "assignee": "田中",
+    "priority": "High",
+    "tags": ["security", "gamma"],
+    "description": "システムのセキュリティを監査する"
+  },
+  {
+    "id": 8,
+    "title": "パフォーマンス最適化",
+    "project": "beta",
+    "start": "2025-06-26",
+    "end": "2025-06-30",
+    "status": "pending",
+    "assignee": "山田",
+    "priority": "Low",
+    "tags": ["optimization", "beta"],
+    "description": "システムのパフォーマンスを最適化する"
+  }
+]
+

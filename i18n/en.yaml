@@ -61,3 +61,43 @@
   translation: "Open menu"
 - id: closeMenu
   translation: "Close"
+- id: backToHome
+  translation: "Back to home"
+- id: HeroTitle
+  translation: "Project Management Tool - ProjectBoard"
+- id: HeroDescription
+  translation: "A lightweight project management tool with task tracking and analytics dashboards."
+- id: HeroCtaDashboard
+  translation: "Open Dashboard"
+- id: HeroCtaProjects
+  translation: "View Projects"
+- id: FeaturesHeading
+  translation: "Key Features"
+- id: FeatureDashboardTitle
+  translation: "Dashboard"
+- id: FeatureDashboardDescription
+  translation: "Visualise project progress and analyse tasks at a glance."
+- id: FeatureTasksTitle
+  translation: "Task Management"
+- id: FeatureTasksDescription
+  translation: "Create, update, and monitor tasks efficiently across projects."
+- id: FeatureTeamTitle
+  translation: "Team Oversight"
+- id: FeatureTeamDescription
+  translation: "Track team workload and productivity trends with ease."
+- id: FeatureAnalyticsTitle
+  translation: "Analytics"
+- id: FeatureAnalyticsDescription
+  translation: "Dive into detailed project metrics and export-ready reports."
+- id: ProjectDashboard
+  translation: "Project Dashboard"
+- id: ProjectDashboardDescription
+  translation: "Dashboard experience for project progress tracking and analytics"
+- id: DashboardIframeUnsupported
+  translation: "Your browser does not support iframes."
+- id: DashboardOpenDirect
+  translation: "Open the dashboard directly"
+- id: DashboardLoadFailed
+  translation: "Failed to load the dashboard"
+- id: BackToProjects
+  translation: "Back to projects"

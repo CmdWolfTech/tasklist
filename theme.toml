@@ -1,0 +1,12 @@
+name = "tasklist"
+license = "MIT"
+licenselink = "https://gitlab.com/CmdWolfTech/tasklist/-/blob/master/LICENSE"
+description = "A Hugo theme for project management, dashboards, and task tracking"
+homepage = "https://cmdwolftech.gitlab.io/tasklist/"
+tags = ["project-management", "dashboard", "portfolio", "minimal", "responsive", "multilingual"]
+features = ["responsive", "multilingual", "dashboard", "gantt"]
+min_version = "0.112.0"
+
+[author]
+  name = "CmdWolfTech"
+  homepage = "https://edward-jobs.com/"
