@@ -4,7 +4,10 @@
     <div class="dashboard-wrapper">
         <div class="dashboard-header">
             <h1>{{ .Title | default (i18n "ProjectDashboard" | default "Project Dashboard") }}</h1>
-            <a href="{{ "" | absLangURL }}" class="back-link">{{ i18n "backToHome" | default "Back to home" }}</a>
+            <a href="{{ "" | absLangURL }}" class="button button--ghost back-link__button dashboard-back-button">
+                <span class="back-link__icon" aria-hidden="true">&larr;</span>
+                <span>{{ i18n "backToHome" | default "Back to home" }}</span>
+            </a>
         </div>
 
         <div class="dashboard-content">
@@ -52,15 +55,8 @@
             margin: 0;
         }
 
-        .dashboard-header .back-link {
+        .dashboard-header .dashboard-back-button {
             margin-left: auto;
-            color: #007bff;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .dashboard-header .back-link:hover {
-            text-decoration: underline;
         }
 
         .dashboard-content {

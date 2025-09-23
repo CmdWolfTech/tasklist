@@ -250,9 +250,22 @@ body {
   transform: translateY(-1px);
 }
 
-.button:focus-visible,
-.details-button:focus-visible,
-.back-to-projects-link:focus-visible {
+.button--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+  box-shadow: none;
+}
+
+.button--ghost:hover,
+.button--ghost:focus-visible {
+  color: var(--primary-color);
+  border-color: rgba(31, 111, 235, 0.45);
+  background: rgba(31, 111, 235, 0.08);
+  box-shadow: var(--shadow-light);
+}
+
+.button:focus-visible {
   outline: 2px solid rgba(31, 111, 235, 0.5);
   outline-offset: 2px;
 }
@@ -965,19 +978,22 @@ select:focus {
 
 /* Back link */
 .back-link {
-  margin-top: 1rem;
+  margin-top: var(--spacing-lg);
 }
 
-.back-link a {
-  text-decoration: none;
-  color: var(--primary-color);
-  font-weight: 500;
-  transition: color var(--transition-fast);
+.back-link__button {
+  gap: var(--spacing-xs);
+  font-size: 0.875rem;
 }
 
-.back-link a:hover {
-  color: var(--secondary-color);
-  text-decoration: underline;
+.back-link__icon {
+  line-height: 1;
+  transition: transform var(--transition-fast);
+}
+
+.back-link__button:hover .back-link__icon,
+.back-link__button:focus-visible .back-link__icon {
+  transform: translateX(-2px);
 }
 
 /* Social Icons and Profile */
