@@ -163,6 +163,224 @@ body {
   min-height: calc(100vh - 200px);
 }
 
+/* Home Page Layout */
+.home-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Project Listing Layout */
+.projects-list-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--card-background);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-light);
+}
+
+.projects-list-container h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.projects-list-footer {
+  margin-top: 3rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-back-button {
+  min-width: 220px;
+}
+
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: var(--background-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-light);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.project-card .project-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.project-card .project-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.project-card .project-title a:hover {
+  color: var(--primary-color);
+}
+
+.project-card .project-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.view-details-link {
+  align-self: flex-start;
+}
+
+.project-visuals {
+  max-width: 1200px;
+  margin: 2rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+/* Project Detail Layout */
+.project-single-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--card-background);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-light);
+}
+
+.project-single-container .project-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.project-single-container .project-title {
+  font-size: 2.8rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.project-single-container .project-description {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-details dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.project-details dt {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.project-details dd {
+  margin: 0.25rem 0 0;
+  color: var(--text-primary);
+}
+
+.project-tags .tag {
+  display: inline-block;
+  background-color: rgba(137, 87, 229, 0.12);
+  color: var(--accent-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-right: 0.5rem;
+}
+
+.project-children ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+.project-body {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.project-footer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .projects-list-container {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .projects-list-container h1 {
+    font-size: 2rem;
+  }
+
+  .project-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-card .project-title {
+    font-size: 1.3rem;
+  }
+
+  .view-details-link {
+    padding: 0.5rem 1rem;
+  }
+
+  .project-visuals {
+    padding: 0 1rem;
+  }
+
+  .projects-back-button {
+    width: 100%;
+  }
+
+  .project-single-container {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .project-single-container .project-title {
+    font-size: 2rem;
+  }
+
+  .project-details dl {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Project List Styles - Updated to match original structure */
 .projects-list {
   padding: 2em 0;
@@ -450,9 +668,11 @@ body {
   height: 8px;
   margin-top: var(--spacing-sm);
   position: relative;
+  --progress-value: 0%;
 }
 
 .progress-bar {
+  width: var(--progress-value);
   height: 100%;
   background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
   border-radius: var(--radius-sm);

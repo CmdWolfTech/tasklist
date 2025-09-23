@@ -12,7 +12,14 @@
   {{ $progress = div (mul $completed 100) $total }}
 {{ end }}
 
-<div class="progress">
-  <div class="progress-bar" style="width: {{ $progress }}%;"></div>
+<div
+  class="progress"
+  role="progressbar"
+  aria-valuenow="{{ $progress }}"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  style="--progress-value: {{ $progress }}%;"
+>
+  <div class="progress-bar"></div>
 </div>
 <div class="progress-label">{{ $progress }}%</div>
