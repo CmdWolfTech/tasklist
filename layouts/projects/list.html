@@ -1,6 +1,12 @@
 {{ define "main" }}
 <div class="projects-list-container">
-    <h1>{{ .Title }}</h1>
+    <div class="projects-list-header">
+        <a href="{{ "projects/" | absLangURL }}" class="button button--ghost back-link__button projects-back-button">
+            <span class="back-link__icon" aria-hidden="true">&larr;</span>
+            <span>{{ i18n "BackToProjects" | default "Back to projects" }}</span>
+        </a>
+        <h1>{{ .Title }}</h1>
+    </div>
     <div class="project-cards">
         {{ range .Pages }}
         <article class="project-card">
@@ -29,11 +35,22 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
+.projects-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
 .projects-list-container h1 {
     font-size: 2.5rem;
     color: #333;
-    margin-bottom: 2rem;
-    text-align: center;
+    margin: 0;
+}
+
+.projects-back-button {
+    align-self: flex-start;
 }
 
 .project-cards {
@@ -97,6 +114,17 @@
 
     .projects-list-container h1 {
         font-size: 2rem;
+    }
+
+    .projects-list-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .projects-back-button {
+        width: 100%;
+        justify-content: center;
     }
 
     .project-cards {
