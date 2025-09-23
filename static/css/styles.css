@@ -979,6 +979,9 @@ select:focus {
 /* Back link */
 .back-link {
   margin-top: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .back-link__button {
