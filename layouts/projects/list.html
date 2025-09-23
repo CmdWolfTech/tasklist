@@ -8,7 +8,7 @@
             {{ with .Description }}
             <p class="project-description">{{ . }}</p>
             {{ end }}
-            <a href="{{ .RelPermalink }}" class="view-details-link">{{ i18n "ViewDetails" | default "View details" }}</a>
+            <a href="{{ .RelPermalink }}" class="view-details-link button button--primary">{{ i18n "ViewDetails" | default "View details" }}</a>
         </article>
         {{ end }}
     </div>
@@ -80,19 +80,7 @@
 }
 
 .view-details-link {
-    display: inline-block;
-    background-color: #667eea;
-    color: #fff;
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
     align-self: flex-start;
-}
-
-.view-details-link:hover {
-    background-color: #5a67d8;
 }
 
 .project-visuals {
