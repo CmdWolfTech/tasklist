@@ -7,7 +7,14 @@ pages:
   stage: deploy
   environment: production
   script:
-  - hugo
+    - hugo
   artifacts:
     paths:
-    - public
+      - public
+  retry:
+    max: 3
+    when:
+      - api_failure
+      - runner_system_failure
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
