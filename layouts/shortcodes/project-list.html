@@ -1,36 +1,122 @@
 <section class="projects-list">
-    <h2 class="section-title">projectList</h2>
-    <div class="card-grid">
-        {{ range (site.GetPage "section" "projects").Pages }}
-        {{ $start := "" }}
-        {{ $end := "" }}
-        {{ range .Pages }}
-            {{ if .Params.start }}
-                {{ if not $start }}
-                    {{ $start = .Params.start }}
-                {{ else if lt (time .Params.start) (time $start) }}
-                    {{ $start = .Params.start }}
-                {{ end }}
-            {{ end }}
-            {{ if .Params.end }}
-                {{ if not $end }}
-                    {{ $end = .Params.end }}
-                {{ else if gt (time .Params.end) (time $end) }}
-                    {{ $end = .Params.end }}
-                {{ end }}
-            {{ end }}
+    {{ $projectsPage := site.GetPage "section" "projects" }}
+    {{ $projects := slice }}
+    {{ if $projectsPage }}
+        {{ $projects = $projectsPage.Pages }}
+    {{ end }}
+    {{ $sectionTitle := "" }}
+    {{ with $projectsPage }}
+        {{ $sectionTitle = .Title }}
+    {{ end }}
+    {{ if not $sectionTitle }}
+        {{ $sectionTitle = i18n "ProjectsHeading" | default "Projects" }}
+    {{ end }}
+    {{ $projectsCount := len $projects }}
+    {{ $taskPages := slice }}
+    {{ $completedProjects := 0 }}
+    {{ $activeProjects := 0 }}
+    {{ range $projects }}
+        {{ $projectTotal := len .Pages }}
+        {{ $projectCompleted := len (where .Pages "Params.status" "completed") }}
+        {{ if and (gt $projectTotal 0) (eq $projectCompleted $projectTotal) }}
+            {{ $completedProjects = add $completedProjects 1 }}
+        {{ else if gt $projectTotal 0 }}
+            {{ $activeProjects = add $activeProjects 1 }}
         {{ end }}
-        <div class="card">
-            <div class="card-body">
-                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-                <p class="project-dates">
-                    {{ if $start }}{{ (time $start).Format (i18n "dateFormat") }}{{ end }} - {{ if $end }}{{ (time $end).Format (i18n "dateFormat") }}{{ end }}
-                </p>
-                {{ partial "task-count.html" . }}
-                {{ partial "gantt-progress.html" . }}
-                <a class="details-button" href="{{ .RelPermalink }}">{{ i18n "ViewDetails" }}</a>
-            </div>
+        {{ range .Pages }}
+            {{ $taskPages = $taskPages | append . }}
+        {{ end }}
+    {{ end }}
+    {{ $totalTasks := len $taskPages }}
+    {{ $completedTasks := len (where $taskPages "Params.status" "completed") }}
+    {{ $overallProgress := 0 }}
+    {{ if gt $totalTasks 0 }}
+        {{ $overallProgress = div (mul $completedTasks 100) $totalTasks }}
+    {{ end }}
+
+    <h2 class="section-title">{{ $sectionTitle }}</h2>
+
+    {{ if gt $projectsCount 0 }}
+    <div class="projects-overview">
+        <div class="overview-card overview-card--contrast">
+            <span class="overview-label">{{ i18n "ProjectsOverview" | default "Projects" }}</span>
+            <span class="overview-value">{{ $projectsCount }}</span>
+            <span class="overview-meta">{{ i18n "ProjectsActiveLabel" | default "Active" }}: {{ $activeProjects }} · {{ i18n "ProjectsCompletedLabel" | default "Completed" }}: {{ $completedProjects }}</span>
         </div>
+        <div class="overview-card">
+            <span class="overview-label">{{ i18n "TasksOverview" | default "Tasks" }}</span>
+            <span class="overview-value">{{ $totalTasks }}</span>
+            {{ partial "task-count.html" (dict "Pages" $taskPages) }}
+        </div>
+        <div class="overview-card">
+            <span class="overview-label">{{ i18n "ProgressOverview" | default "Completion" }}</span>
+            <span class="overview-value">{{ printf "%d%%" $overallProgress }}</span>
+            {{ partial "gantt-progress.html" (dict "Pages" $taskPages) }}
+        </div>
+    </div>
+
+    <div class="card-grid">
+        {{ range $projects }}
+            {{ $projectTasks := .Pages }}
+            {{ $total := len $projectTasks }}
+            {{ $completed := len (where $projectTasks "Params.status" "completed") }}
+            {{ $inProgress := len (where $projectTasks "Params.status" "in-progress") }}
+            {{ $statusKey := "taskNotStarted" }}
+            {{ $statusModifier := "card--not-started" }}
+            {{ $statusSlug := "not-started" }}
+            {{ if and (gt $total 0) (eq $completed $total) }}
+                {{ $statusKey = "taskCompleted" }}
+                {{ $statusModifier = "card--completed" }}
+                {{ $statusSlug = "completed" }}
+            {{ else if gt $inProgress 0 }}
+                {{ $statusKey = "taskInProgress" }}
+                {{ $statusModifier = "card--in-progress" }}
+                {{ $statusSlug = "in-progress" }}
+            {{ else if gt $total 0 }}
+                {{ $statusKey = "taskNotStarted" }}
+                {{ $statusModifier = "card--not-started" }}
+                {{ $statusSlug = "not-started" }}
+            {{ end }}
+            {{ $start := "" }}
+            {{ $end := "" }}
+            {{ range $projectTasks }}
+                {{ with .Params.start }}
+                    {{ if not $start }}
+                        {{ $start = . }}
+                    {{ else if lt (time .) (time $start) }}
+                        {{ $start = . }}
+                    {{ end }}
+                {{ end }}
+                {{ with .Params.end }}
+                    {{ if not $end }}
+                        {{ $end = . }}
+                    {{ else if gt (time .) (time $end) }}
+                        {{ $end = . }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+            <div class="card {{ $statusModifier }}">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                        <span class="card-status card-status--{{ $statusSlug }}">{{ i18n $statusKey }}</span>
+                    </div>
+                    <p class="card-summary">{{ printf "%d %s" $total (i18n "TasksLabel" | default "tasks") }}</p>
+                    {{ if or $start $end }}
+                    <p class="project-dates">
+                        {{ if $start }}{{ (time $start).Format (i18n "dateFormat") }}{{ end }}{{ if and $start $end }} – {{ end }}{{ if $end }}{{ (time $end).Format (i18n "dateFormat") }}{{ end }}
+                    </p>
+                    {{ end }}
+                    <div class="card-insights">
+                        {{ partial "task-count.html" . }}
+                        {{ partial "gantt-progress.html" . }}
+                    </div>
+                    <a class="details-button" href="{{ .RelPermalink }}">{{ i18n "ViewDetails" }}</a>
+                </div>
+            </div>
         {{ end }}
     </div>
+    {{ else }}
+    <p class="empty-projects">{{ i18n "ProjectsEmpty" | default "No projects are available yet." }}</p>
+    {{ end }}
 </section>

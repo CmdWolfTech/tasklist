@@ -101,3 +101,23 @@
   translation: "Failed to load the dashboard"
 - id: BackToProjects
   translation: "Back to projects"
+- id: ProjectsHeading
+  translation: "Projects"
+- id: ProjectsOverview
+  translation: "Projects"
+- id: ProjectsActiveLabel
+  translation: "Active"
+- id: ProjectsCompletedLabel
+  translation: "Completed"
+- id: TasksOverview
+  translation: "Tasks"
+- id: TasksLabel
+  translation: "tasks"
+- id: ProgressOverview
+  translation: "Completion"
+- id: ProjectsEmpty
+  translation: "No projects are available yet."
+- id: DashboardActionProjects
+  translation: "Project list"
+- id: DashboardActionMembers
+  translation: "Team"

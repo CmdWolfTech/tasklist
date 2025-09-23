@@ -12,64 +12,117 @@
     <link rel="icon" href="{{ "img/favicon.png" | relURL }}">
     {{ end }}
 
+    <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
+        *, *::before, *::after {
             box-sizing: border-box;
         }
 
         html, body {
             height: 100%;
-            overflow: hidden;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-japanese);
+            background: var(--background-color);
+            color: var(--text-primary);
         }
 
         .dashboard-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: var(--background-color);
         }
 
         .dashboard-header {
-            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: var(--spacing-lg);
+            padding: 0 var(--spacing-xl);
+            min-height: 72px;
+            background: var(--card-background);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-light);
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: #fff;
-            border-bottom: 1px solid #e0e0e0;
-            z-index: 1000;
+            z-index: 10;
+        }
+
+        .dashboard-title {
+            flex: 1 1 240px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .dashboard-title h1 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 650;
+        }
+
+        .dashboard-title p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .dashboard-actions {
             display: flex;
             align-items: center;
-            padding: 0 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
         }
 
-        .dashboard-header h1 {
-            font-size: 18px;
-            color: #333;
-            margin: 0;
-        }
-
-        .dashboard-header .back-link {
-            margin-left: auto;
-            color: #007bff;
+        .dashboard-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: 0.55rem 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            background: var(--card-background);
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all var(--transition-fast);
         }
 
-        .dashboard-header .back-link:hover {
-            text-decoration: underline;
+        .dashboard-link:hover {
+            color: var(--primary-color);
+            border-color: rgba(31, 111, 235, 0.35);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .dashboard-link--primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            border-color: transparent;
+        }
+
+        .dashboard-link--primary:hover {
+            box-shadow: var(--shadow-large);
+            transform: translateY(-1px);
         }
 
         .dashboard-content {
-            position: absolute;
-            top: 60px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: calc(100vh - 60px);
+            flex: 1 1 auto;
+            padding: var(--spacing-xl);
+            display: flex;
+        }
+
+        .dashboard-surface {
+            flex: 1 1 auto;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            background: var(--card-background);
         }
 
         .dashboard-frame {
@@ -77,42 +130,52 @@
             height: 100%;
             border: none;
             display: block;
+            background: var(--card-background);
         }
 
         @media (max-width: 768px) {
             .dashboard-header {
-                height: 50px;
-                padding: 0 15px;
+                padding: var(--spacing-md);
+                gap: var(--spacing-md);
             }
 
-            .dashboard-header h1 {
-                font-size: 16px;
+            .dashboard-title h1 {
+                font-size: 1.1rem;
             }
 
             .dashboard-content {
-                top: 50px;
-                height: calc(100vh - 50px);
+                padding: var(--spacing-md);
             }
         }
     </style>
 </head>
 <body>
     <div class="dashboard-wrapper">
-        <div class="dashboard-header">
-            <h1>{{ .Title | default (i18n "ProjectDashboard" | default "Project Dashboard") }}</h1>
-            <a href="{{ "" | absLangURL }}" class="back-link">{{ i18n "backToHome" | default "Back to home" }}</a>
-        </div>
+        <header class="dashboard-header">
+            <div class="dashboard-title">
+                <h1>{{ .Title | default (i18n "ProjectDashboard" | default "Project Dashboard") }}</h1>
+                {{ $desc := .Description | default (i18n "ProjectDashboardDescription" | default "Project management dashboard for progress tracking and analytics") }}
+                {{ if $desc }}<p>{{ $desc }}</p>{{ end }}
+            </div>
+            <nav class="dashboard-actions" aria-label="{{ i18n "ProjectDashboard" | default "Project Dashboard" }}">
+                <a class="dashboard-link" href="{{ "projects/" | absLangURL }}">{{ i18n "DashboardActionProjects" | default "Project list" }}</a>
+                <a class="dashboard-link" href="{{ "member/" | absLangURL }}">{{ i18n "DashboardActionMembers" | default "Team" }}</a>
+                <a class="dashboard-link dashboard-link--primary" href="{{ "" | absLangURL }}">{{ i18n "backToHome" | default "Back to home" }}</a>
+            </nav>
+        </header>
 
         <div class="dashboard-content">
-            <iframe
-                src="{{ "dashboard/" | absLangURL }}"
-                class="dashboard-frame"
-                title="{{ i18n "ProjectDashboard" | default "Project Dashboard" }}"
-                loading="lazy"
-                allowfullscreen>
-                <p>{{ i18n "DashboardIframeUnsupported" | default "Your browser does not support iframes." }}
-                    <a href="{{ "dashboard/" | absLangURL }}">{{ i18n "DashboardOpenDirect" | default "Open the dashboard directly" }}</a></p>
-            </iframe>
+            <div class="dashboard-surface">
+                <iframe
+                    src="{{ "dashboard/" | absLangURL }}"
+                    class="dashboard-frame"
+                    title="{{ i18n "ProjectDashboard" | default "Project Dashboard" }}"
+                    loading="lazy"
+                    allowfullscreen>
+                    <p>{{ i18n "DashboardIframeUnsupported" | default "Your browser does not support iframes." }}
+                        <a href="{{ "dashboard/" | absLangURL }}">{{ i18n "DashboardOpenDirect" | default "Open the dashboard directly" }}</a></p>
+                </iframe>
+            </div>
         </div>
     </div>
 
@@ -127,7 +190,7 @@
             iframe.onerror = function() {
                 console.error('Failed to load dashboard');
                 const content = document.querySelector('.dashboard-content');
-                content.innerHTML = '<div style="padding: 20px; text-align: center;"><h2>{{ i18n "DashboardLoadFailed" | default "Failed to load the dashboard" }}</h2><p><a href="{{ "dashboard/" | absLangURL }}">{{ i18n "DashboardOpenDirect" | default "Open the dashboard directly" }}</a></p></div>';
+                content.innerHTML = '<div style="padding: 2rem; text-align: center; background: var(--card-background); border: 1px solid var(--border-color); border-radius: var(--radius-xl); box-shadow: var(--shadow-light); width: 100%;"><h2>{{ i18n "DashboardLoadFailed" | default "Failed to load the dashboard" }}</h2><p><a href="{{ "dashboard/" | absLangURL }}">{{ i18n "DashboardOpenDirect" | default "Open the dashboard directly" }}</a></p></div>';
             };
         });
     </script>

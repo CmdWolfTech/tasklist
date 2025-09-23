@@ -101,3 +101,23 @@
   translation: "ダッシュボードの読み込みに失敗しました"
 - id: BackToProjects
   translation: "プロジェクト一覧に戻る"
+- id: ProjectsHeading
+  translation: "プロジェクト一覧"
+- id: ProjectsOverview
+  translation: "プロジェクト数"
+- id: ProjectsActiveLabel
+  translation: "進行中"
+- id: ProjectsCompletedLabel
+  translation: "完了"
+- id: TasksOverview
+  translation: "タスク数"
+- id: TasksLabel
+  translation: "タスク"
+- id: ProgressOverview
+  translation: "全体の進捗"
+- id: ProjectsEmpty
+  translation: "現在、表示できるプロジェクトがありません。"
+- id: DashboardActionProjects
+  translation: "プロジェクト一覧"
+- id: DashboardActionMembers
+  translation: "チーム"
