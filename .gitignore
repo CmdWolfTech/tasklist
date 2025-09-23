@@ -1,3 +1,4 @@
-!,gitkeep
+public/*
+!.gitkeep
 .DS_Store
 Thumbs.db
