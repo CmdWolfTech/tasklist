@@ -14,6 +14,11 @@
   --shadow-medium: 0 3px 6px rgba(27, 31, 36, 0.12);
   --shadow-large: 0 6px 16px rgba(27, 31, 36, 0.12);
 
+  /* Priority Colors */
+  --priority-high-color: #dc2626;
+  --priority-medium-color: #d97706;
+  --priority-low-color: #0f766e;
+
   /* Typography */
   --font-primary: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Noto Sans JP', system-ui, sans-serif;
   --font-japanese: 'Noto Sans JP', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -1062,20 +1067,20 @@ select:focus {
 }
 
 .gantt .priority-high .bar {
-  fill: #e3342f !important;
-  stroke: #cc1f1a !important;
+  fill: var(--priority-high-color) !important;
+  stroke: #b91c1c !important;
   stroke-width: 1.5px !important;
 }
 
 .gantt .priority-medium .bar {
-  fill: var(--accent-color) !important;
-  stroke: #7a4bce !important;
+  fill: var(--priority-medium-color) !important;
+  stroke: #b45309 !important;
   stroke-width: 1.5px !important;
 }
 
 .gantt .priority-low .bar {
-  fill: var(--primary-color) !important;
-  stroke: #1a56db !important;
+  fill: var(--priority-low-color) !important;
+  stroke: #0a4f4b !important;
   stroke-width: 1.5px !important;
 }
 
@@ -1304,17 +1309,17 @@ select:focus {
 }
 
 .priority-high {
-  background-color: #dc2626;
+  background-color: var(--priority-high-color);
   color: #fff;
 }
 
 .priority-medium {
-  background-color: var(--accent-color);
+  background-color: var(--priority-medium-color);
   color: #fff;
 }
 
 .priority-low {
-  background-color: var(--primary-color);
+  background-color: var(--priority-low-color);
   color: #fff;
 }
 
