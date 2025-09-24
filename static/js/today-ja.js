@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const target = document.getElementById("today-date");
+  const target = document.getElementById("currentDate");
   if (!target) return;
 
   const jst = new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" });

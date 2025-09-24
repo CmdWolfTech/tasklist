@@ -121,3 +121,9 @@
   translation: "プロジェクト一覧"
 - id: DashboardActionMembers
   translation: "チーム"
+- id: Search
+  translation: "検索"
+- id: SearchPlaceholder
+  translation: "プロジェクトやタスクを検索..."
+- id: SwitchLanguage
+  translation: "言語を切り替える"

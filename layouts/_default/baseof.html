@@ -27,42 +27,96 @@
 
 <body>
         {{ partial "gtm-body.html" . }}
-        <header class="site-header">
-		<div class="container header-inner">
-			<h1 class="logo"><a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a></h1>
-               <nav class="main-nav">
-                       <button id="menu-toggle" class="menu-toggle" aria-label="{{ i18n "openMenu" }}">
-                               <img src="{{ "img/menu-icon.png" | relURL }}" alt="{{ i18n "openMenu" }}" width="60" height="60">
-                       </button>
-                       <ul>
-                               <li class="menu-close-item">
-                                       <button id="menu-close" class="menu-close" aria-label="{{ i18n "closeMenu" }}">&#x2717; {{ i18n "closeMenu" }}</button>
-                               </li>
-                                <li>
-                                        <select id="lang-switcher" onchange="location.href=this.value">
-                                        {{ $current := . }}
-                                        {{ range $.Site.Home.AllTranslations }}
-                                        {{ $trans := "" }}
-                                        {{ $filtered := where $current.AllTranslations "Lang" .Lang }}
-                                        {{ if gt (len $filtered) 0 }}{{ $trans = index $filtered 0 }}{{ end }}
-                                        <option value="{{ if $trans }}{{ $trans.RelPermalink }}{{ else }}{{ .RelPermalink }}{{ end }}" {{ if eq .Lang $.Site.Language.Lang }}selected{{ end }}>{{
-                                                .Language.LanguageName }}</option>
-                                        {{ end }}
-                                        </select>
+        {{ $current := . }}
+        {{ $searchMenu := where .Site.Menus.main "Identifier" "search" }}
+        {{ $translations := $.Site.Home.AllTranslations }}
+        <header class="site-header header">
+                <nav class="nav-container">
+                        <button id="mobileMenuToggle" class="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="{{ i18n "openMenu" }}">
+                                <div class="hamburger" id="hamburgerIcon" aria-hidden="true">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                </div>
+                        </button>
+
+                        <a class="logo" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+
+                        <ul class="nav-menu">
+                                {{ range where .Site.Menus.main "Identifier" "!=" "search" }}
+                                {{ $isActive := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+                                <li class="nav-item">
+                                        <a class="nav-link{{ if $isActive }} active{{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a>
                                 </li>
-                               {{ range .Site.Menus.main }}
-                               {{ if eq .Identifier "search" }}
-                               <li class="menu-item-search"><a href="{{ .URL | relURL }}" aria-label="{{ .Name }}"><img src="{{ "img/search-icon.png" | relURL }}" alt="" class="search-icon"><span class="search-text">{{ .Name }}</span></a></li>
-                               {{ else }}
-                               <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-                               {{ end }}
-                               {{ end }}
-                                <li id="today-date">
-                                </li>
+                                {{ end }}
                         </ul>
+
+                        <div class="actions">
+                                {{ if gt (len $searchMenu) 0 }}
+                                {{ $search := index $searchMenu 0 }}
+                                <button class="search-toggle" id="searchToggle" type="button" aria-expanded="false" aria-controls="searchPanel" aria-label="{{ $search.Name }}">🔍</button>
+                                {{ end }}
+
+                                <div class="search-panel" id="searchPanel">
+                                        {{ if gt (len $searchMenu) 0 }}
+                                        {{ $search := index $searchMenu 0 }}
+                                        <div class="search-label">{{ $search.Name }}</div>
+                                        <form role="search" method="get" action="{{ $search.URL | relURL }}">
+                                                <input type="search" class="search-input" id="searchInput" name="q" placeholder="{{ i18n "SearchPlaceholder" | default (printf "%s..." $search.Name) }}">
+                                        </form>
+                                        {{ else }}
+                                        <div class="search-label">{{ i18n "Search" | default "Search" }}</div>
+                                        <input type="search" class="search-input" id="searchInput" placeholder="{{ i18n "SearchPlaceholder" | default "Search..." }}">
+                                        {{ end }}
+                                </div>
+
+                                {{ if gt (len $translations) 1 }}
+                                <div class="language-selector">
+                                        <button class="language-btn" id="languageButton" type="button" aria-expanded="false" aria-controls="languageDropdown">🌐 <span id="currentLanguage">{{ .Site.Language.LanguageName }}</span></button>
+                                        <div class="language-dropdown" id="languageDropdown">
+                                                {{ range $translations }}
+                                                {{ $trans := "" }}
+                                                {{ $filtered := where $current.AllTranslations "Lang" .Lang }}
+                                                {{ if gt (len $filtered) 0 }}{{ $trans = index $filtered 0 }}{{ end }}
+                                                <button class="language-option{{ if eq .Lang $.Site.Language.Lang }} is-active{{ end }}" type="button" data-lang="{{ .Lang }}" data-url="{{ if $trans }}{{ $trans.RelPermalink }}{{ else }}{{ .RelPermalink }}{{ end }}">{{ .Language.LanguageName }}</button>
+                                                {{ end }}
+                                        </div>
+                                </div>
+                                {{ end }}
+
+                                <span class="current-date" id="currentDate"></span>
+                        </div>
                 </nav>
-		</div>
-	</header>
+
+                <div class="mobile-menu" id="mobileMenu">
+                        <ul class="mobile-menu-list">
+                                {{ range where .Site.Menus.main "Identifier" "!=" "search" }}
+                                {{ $isActive := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+                                <li>
+                                        <a class="mobile-menu-link{{ if $isActive }} active{{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a>
+                                </li>
+                                {{ end }}
+                                {{ if gt (len $searchMenu) 0 }}
+                                {{ $search := index $searchMenu 0 }}
+                                <li>
+                                        <a class="mobile-menu-link mobile-search-trigger" href="{{ $search.URL | relURL }}">🔍 {{ $search.Name }}</a>
+                                </li>
+                                {{ end }}
+                        </ul>
+                        {{ if gt (len $translations) 1 }}
+                        <div class="mobile-divider"></div>
+                        <button class="mobile-menu-link mobile-language-toggle" type="button">🌐 {{ i18n "SwitchLanguage" | default "Language" }}</button>
+                        <div class="mobile-dropdown" id="languageDropdownMobile">
+                                {{ range $translations }}
+                                {{ $trans := "" }}
+                                {{ $filtered := where $current.AllTranslations "Lang" .Lang }}
+                                {{ if gt (len $filtered) 0 }}{{ $trans = index $filtered 0 }}{{ end }}
+                                <button class="language-option{{ if eq .Lang $.Site.Language.Lang }} is-active{{ end }}" type="button" data-lang="{{ .Lang }}" data-url="{{ if $trans }}{{ $trans.RelPermalink }}{{ else }}{{ .RelPermalink }}{{ end }}">{{ .Language.LanguageName }}</button>
+                                {{ end }}
+                        </div>
+                        {{ end }}
+                </div>
+        </header>
 
 	<main class="site-main container">
 		{{ block "main" . }}{{ end }}

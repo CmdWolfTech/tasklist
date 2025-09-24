@@ -121,3 +121,9 @@
   translation: "Project list"
 - id: DashboardActionMembers
   translation: "Team"
+- id: Search
+  translation: "Search"
+- id: SearchPlaceholder
+  translation: "Search projects or tasks..."
+- id: SwitchLanguage
+  translation: "Change language"
