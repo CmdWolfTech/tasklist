@@ -810,10 +810,13 @@ img {
     right: -250px;
     width: 200px;
     height: 100%;
-    background: var(--card-background);
+    background-color: var(--card-background);
+    background-color: rgba(246, 248, 250, 0.95);
+    backdrop-filter: blur(16px);
     flex-direction: column;
     padding: 2em 1em;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    border-left: 1px solid var(--border-color);
+    box-shadow: -12px 0 24px rgba(27, 31, 36, 0.12);
     transition: right var(--transition-normal);
     z-index: 1000;
   }
