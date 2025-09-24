@@ -1102,7 +1102,7 @@ select:focus {
 
 .gantt .arrow {
   stroke: var(--neutral-color) !important;
-  fill: var(--neutral-color) !important;
+  fill: none !important;
   stroke-width: 1.5px !important;
 }
 
