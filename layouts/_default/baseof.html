@@ -54,21 +54,10 @@
                         <div class="actions">
                                 {{ if gt (len $searchMenu) 0 }}
                                 {{ $search := index $searchMenu 0 }}
-                                <button class="search-toggle" id="searchToggle" type="button" aria-expanded="false" aria-controls="searchPanel" aria-label="{{ $search.Name }}">🔍</button>
+                                <a class="search-toggle" href="{{ $search.URL | relURL }}" aria-label="{{ $search.Name }}">
+                                        🔍 <span class="search-toggle__text">{{ $search.Name }}</span>
+                                </a>
                                 {{ end }}
-
-                                <div class="search-panel" id="searchPanel">
-                                        {{ if gt (len $searchMenu) 0 }}
-                                        {{ $search := index $searchMenu 0 }}
-                                        <div class="search-label">{{ $search.Name }}</div>
-                                        <form role="search" method="get" action="{{ $search.URL | relURL }}">
-                                                <input type="search" class="search-input" id="searchInput" name="q" placeholder="{{ i18n "SearchPlaceholder" | default (printf "%s..." $search.Name) }}">
-                                        </form>
-                                        {{ else }}
-                                        <div class="search-label">{{ i18n "Search" | default "Search" }}</div>
-                                        <input type="search" class="search-input" id="searchInput" placeholder="{{ i18n "SearchPlaceholder" | default "Search..." }}">
-                                        {{ end }}
-                                </div>
 
                                 {{ if gt (len $translations) 1 }}
                                 <div class="language-selector">
