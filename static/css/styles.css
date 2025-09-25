@@ -440,6 +440,10 @@ button.mobile-menu-link {
     justify-content: flex-end;
   }
 
+  .language-selector {
+    display: none;
+  }
+
   .nav-menu {
     display: none;
   }
