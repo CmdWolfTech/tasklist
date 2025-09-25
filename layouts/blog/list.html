@@ -16,7 +16,7 @@
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <div class="desc">{{ .Summary }}</div>
         {{ partial "author-info.html" . }}
-        <a class="read-more" href="{{ .RelPermalink }}">{{ i18n "ReadMore" }}</a>
+        <a class="read-more button button--primary" href="{{ .RelPermalink }}">{{ i18n "ReadMore" }}</a>
       </div>
     {{ end }}
   </div>
