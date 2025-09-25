@@ -17,7 +17,9 @@
     </div>
     {{ with .Params.tags }}{{ if $.Site.Params.blog.showTags }}
       <div class="post-tags">
-        {{ range $index, $tag := . }}{{ if $index }}, {{ end }}<span class="tag">{{ $tag }}</span>{{ end }}
+        {{ range . }}
+          <span class="tag">{{ . }}</span>
+        {{ end }}
       </div>
     {{ end }}{{ end }}
     {{ partial "author-info.html" . }}

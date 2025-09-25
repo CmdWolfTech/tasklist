@@ -11,7 +11,11 @@
           <span class="date">{{ .Date.Format (i18n "dateFormat") }}</span>
         {{ end }}
         {{ with .Params.tags }}{{ if $.Site.Params.blog.showTags }}
-          {{range $index, $tag := . }}{{ if $index }}, {{ end }}<span class="tag">{{ $tag }}</span>{{ end }}
+          <div class="post-tags">
+            {{ range . }}
+              <span class="tag">{{ . }}</span>
+            {{ end }}
+          </div>
         {{ end }}{{ end }}
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <div class="desc">{{ .Summary }}</div>
