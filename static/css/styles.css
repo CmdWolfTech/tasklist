@@ -1027,11 +1027,6 @@ button.mobile-menu-link {
   font-weight: 600;
 }
 
-/* Detail button alignment */
-.details-button {
-  align-self: flex-end;
-}
-
 /* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
