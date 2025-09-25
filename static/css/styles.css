@@ -424,6 +424,21 @@ button.mobile-menu-link {
 }
 
 @media (max-width: 1024px) {
+  .header .nav-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  .header .logo {
+    justify-self: center;
+  }
+
+  .actions {
+    justify-self: end;
+    justify-content: flex-end;
+  }
+
   .nav-menu {
     display: none;
   }
