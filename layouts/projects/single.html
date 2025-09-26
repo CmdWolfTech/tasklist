@@ -65,9 +65,11 @@
                 <div class="project-tags">
                     <dt>{{ i18n "Tags" }}</dt>
                     <dd>
-                        {{ range $index, $tag := . }}
-                            {{ if $index }}, {{ end }}<span class="tag">{{ $tag }}</span>
-                        {{ end }}
+                        <div class="post-tags">
+                            {{ range . }}
+                            <span class="tag">{{ . }}</span>
+                            {{ end }}
+                        </div>
                     </dd>
                 </div>
                 {{ end }}
