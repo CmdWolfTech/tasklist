@@ -29,6 +29,7 @@
         {{ partial "gtm-body.html" . }}
         {{ $current := . }}
         {{ $searchMenu := where .Site.Menus.main "Identifier" "search" }}
+        {{ $menuItems := sort (where .Site.Menus.main "Identifier" "!=" "search") "Weight" }}
         {{ $translations := $.Site.Home.AllTranslations }}
         <header class="site-header header">
                 <nav class="nav-container">
@@ -43,7 +44,7 @@
                         <a class="logo" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
 
                         <ul class="nav-menu">
-                                {{ range where .Site.Menus.main "Identifier" "!=" "search" }}
+                                {{ range $menuItems }}
                                 {{ $isActive := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
                                 <li class="nav-item">
                                         <a class="nav-link{{ if $isActive }} active{{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a>
@@ -79,7 +80,7 @@
 
                 <div class="mobile-menu" id="mobileMenu">
                         <ul class="mobile-menu-list">
-                                {{ range where .Site.Menus.main "Identifier" "!=" "search" }}
+                                {{ range $menuItems }}
                                 {{ $isActive := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
                                 <li>
                                         <a class="mobile-menu-link{{ if $isActive }} active{{ end }}" href="{{ .URL | relURL }}">{{ .Name }}</a>
