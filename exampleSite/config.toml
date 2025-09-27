@@ -70,7 +70,7 @@ theme = "tasklist"
       [[languages.ja.menu.main]]
         identifier = "projects"
         name = "プロジェクト"
-        url = "/ja/projects/"
+        url = "/ja/"
         weight = 1
       [[languages.ja.menu.main]]
         identifier = "about"
@@ -102,7 +102,7 @@ theme = "tasklist"
       [[languages.en.menu.main]]
         identifier = "projects"
         name = "Projects"
-        url = "/en/projects/"
+        url = "/en/"
         weight = 1
       [[languages.en.menu.main]]
         identifier = "about"
