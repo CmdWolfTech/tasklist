@@ -1554,44 +1554,78 @@ select:focus {
   color: var(--text-primary);
 }
 
-.task-details-meta span {
-  display: inline-block;
-  margin-left: 0.5rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  font-weight: 500;
+.task-details-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.task-details-meta .status,
+.task-details-meta .priority {
+  margin: 0;
+}
+
+.status,
+.priority {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 650;
+  line-height: 1;
+  border: 1px solid transparent;
+  transition: background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.status {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.priority {
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
 }
 
 /* Status Colors */
 .status-not-started {
-  background-color: var(--neutral-color);
-  color: #fff;
+  color: var(--neutral-color);
+  background-color: rgba(87, 96, 106, 0.12);
+  border-color: rgba(87, 96, 106, 0.24);
 }
 
 .status-in-progress {
-  background-color: var(--accent-color);
-  color: #fff;
+  color: var(--primary-color);
+  background-color: rgba(31, 111, 235, 0.12);
+  border-color: rgba(31, 111, 235, 0.24);
 }
 
 .status-completed {
-  background-color: var(--secondary-color);
-  color: #fff;
+  color: var(--secondary-color);
+  background-color: rgba(46, 160, 67, 0.12);
+  border-color: rgba(46, 160, 67, 0.24);
 }
 
 .priority-high {
-  background-color: var(--priority-high-color);
-  color: #fff;
+  color: var(--priority-high-color);
+  background-color: rgba(220, 38, 38, 0.12);
+  border-color: rgba(220, 38, 38, 0.22);
 }
 
 .priority-medium {
-  background-color: var(--priority-medium-color);
-  color: #fff;
+  color: var(--priority-medium-color);
+  background-color: rgba(217, 119, 6, 0.12);
+  border-color: rgba(217, 119, 6, 0.22);
 }
 
 .priority-low {
-  background-color: var(--priority-low-color);
-  color: #fff;
+  color: var(--priority-low-color);
+  background-color: rgba(15, 118, 110, 0.12);
+  border-color: rgba(15, 118, 110, 0.22);
 }
 
 .task-details-info {
