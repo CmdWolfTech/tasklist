@@ -6,6 +6,7 @@ tags:
   - sample2
   - introduction
 author: member-1
+cover: /img/profile.png
 ---
 
 This is the first blog post.

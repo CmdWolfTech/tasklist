@@ -21,21 +21,49 @@
 {{ $image := "" }}
 {{ with .Params.images }}
   {{ $image = (index . 0) | absURL }}
-{{ else }}
-  {{ with .Params.cover }}
-    {{ $image = . | absURL }}
-  {{ else }}
-    {{ $mdImg := findRE `!\[[^\]]*\]\(([^)]+)\)` .RawContent }}
-    {{ if gt (len $mdImg) 0 }}
-      {{ $image = replaceRE `!\[[^\]]*\]\(([^)]+)\)` "$1" (index $mdImg 0) | absURL }}
-    {{ else }}
-      {{ $htmlImg := findRE `<img.*?src="([^"]+)"` .Content }}
-      {{ if gt (len $htmlImg) 0 }}
-        {{ $image = replaceRE `<img.*?src="([^"]+)".*` "$1" (index $htmlImg 0) | absURL }}
-      {{ else }}
-        {{ if $imageParam }}
-          {{ $image = printf "img/%s" $imageParam | absURL }}
+{{ end }}
+
+{{ if not $image }}
+  {{ $coverParam := .Params.cover }}
+  {{ with $coverParam }}
+    {{ $coverType := printf "%T" . }}
+    {{ if eq $coverType "string" }}
+      {{ $image = . | absURL }}
+    {{ else if in $coverType "map" }}
+      {{ $coverImage := index . "image" | default (index . "src") }}
+      {{ with $coverImage }}
+        {{ $coverImageType := printf "%T" . }}
+        {{ if eq $coverImageType "string" }}
+          {{ $image = . | absURL }}
+        {{ else if in $coverImageType "map" }}
+          {{ with index . "src" }}
+            {{ $image = . | absURL }}
+          {{ end }}
         {{ end }}
+      {{ end }}
+      {{ if and (not $image) (isset . "image") }}
+        {{ with .image }}
+          {{ $innerType := printf "%T" . }}
+          {{ if eq $innerType "string" }}
+            {{ $image = . | absURL }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if not $image }}
+  {{ $mdImg := findRE `!\[[^\]]*\]\(([^)]+)\)` .RawContent }}
+  {{ if gt (len $mdImg) 0 }}
+    {{ $image = replaceRE `!\[[^\]]*\]\(([^)]+)\)` "$1" (index $mdImg 0) | absURL }}
+  {{ else }}
+    {{ $htmlImg := findRE `<img.*?src="([^"]+)"` .Content }}
+    {{ if gt (len $htmlImg) 0 }}
+      {{ $image = replaceRE `<img.*?src="([^"]+)".*` "$1" (index $htmlImg 0) | absURL }}
+    {{ else }}
+      {{ if $imageParam }}
+        {{ $image = printf "img/%s" $imageParam | absURL }}
       {{ end }}
     {{ end }}
   {{ end }}
