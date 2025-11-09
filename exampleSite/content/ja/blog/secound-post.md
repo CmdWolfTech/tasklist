@@ -6,6 +6,7 @@ tags:
   - サンプル
   - 紹介2
 author: member-1
+cover: /img/profile.png
 ---
 
 これは最初のブログ記事です。

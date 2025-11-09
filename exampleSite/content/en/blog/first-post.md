@@ -6,6 +6,9 @@ tags:
   - sample
   - introduction
 description: "This is a summary of the first blog post."
+cover:
+  image: /img/profile.png
+  alt: "Profile cover"
 ---
 
 This is the first blog post.

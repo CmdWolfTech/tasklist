@@ -1,9 +1,47 @@
 {{ define "main" }}
 <article class="blog-post">
-  {{ with .Params.cover }}
-  <div class="post-hero">
-    <img src="{{ . | relURL }}" alt="{{ $.Title }}">
-  </div>
+  {{ $coverParam := .Params.cover }}
+  {{ if $coverParam }}
+    {{ $coverType := printf "%T" $coverParam }}
+    {{ $coverSrc := "" }}
+    {{ $coverAlt := .Title }}
+    {{ if eq $coverType "string" }}
+      {{ $coverSrc = $coverParam }}
+    {{ else if in $coverType "map" }}
+      {{ $coverImage := index $coverParam "image" | default (index $coverParam "src") }}
+      {{ with $coverImage }}
+        {{ $coverImageType := printf "%T" . }}
+        {{ if eq $coverImageType "string" }}
+          {{ $coverSrc = . }}
+        {{ else if in $coverImageType "map" }}
+          {{ with index . "src" }}
+            {{ $coverSrc = . }}
+          {{ end }}
+          {{ with index . "alt" }}
+            {{ $coverAlt = . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ with index $coverParam "alt" }}
+        {{ $coverAlt = . }}
+      {{ end }}
+      {{ if and (not $coverSrc) (isset $coverParam "image") }}
+        {{ with $coverParam.image }}
+          {{ $innerType := printf "%T" . }}
+          {{ if eq $innerType "string" }}
+            {{ $coverSrc = . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ if $coverSrc }}
+      {{ if not (hasPrefix $coverSrc "http") }}
+        {{ $coverSrc = $coverSrc | relURL }}
+      {{ end }}
+      <div class="post-hero">
+        <img src="{{ $coverSrc }}" alt="{{ $coverAlt }}">
+      </div>
+    {{ end }}
   {{ end }}
   <header class="post-header">
     <h1>{{ .Title }}</h1>
