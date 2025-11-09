@@ -6,6 +6,9 @@ tags:
   - サンプル
   - 紹介2
 author: member-1
+image:
+  src: /img/member-1.png
+  alt: "担当メンバーの写真"
 ---
 
 これは最初のブログ記事です。

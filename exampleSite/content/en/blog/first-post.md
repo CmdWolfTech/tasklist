@@ -6,6 +6,7 @@ tags:
   - sample
   - introduction
 description: "This is a summary of the first blog post."
+image: /img/profile.png
 ---
 
 This is the first blog post.

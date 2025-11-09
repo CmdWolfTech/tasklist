@@ -19,11 +19,27 @@
 {{ $url := .Permalink }}
 {{ $imageParam := .Site.Params.opengraph.image | default (.Site.Params.twitter_cards.image | default .Site.Params.profile_image) }}
 {{ $image := "" }}
-{{ with .Params.images }}
+{{ $imagesParam := .Params.images }}
+{{ $imageList := slice }}
+{{ with $imagesParam }}
+  {{ if or (reflect.IsSlice .) (reflect.IsArray .) }}
+    {{ $imageList = . }}
+  {{ else }}
+    {{ $imageList = slice . }}
+  {{ end }}
+{{ end }}
+{{ with $imageList }}
   {{ $image = (index . 0) | absURL }}
 {{ else }}
-  {{ with .Params.cover }}
-    {{ $image = . | absURL }}
+  {{ $pageImage := .Params.image }}
+  {{ with $pageImage }}
+    {{ if (isString .) }}
+      {{ $image = . | absURL }}
+    {{ else }}
+      {{ with .src | default .image }}
+        {{ $image = . | absURL }}
+      {{ end }}
+    {{ end }}
   {{ else }}
     {{ $mdImg := findRE `!\[[^\]]*\]\(([^)]+)\)` .RawContent }}
     {{ if gt (len $mdImg) 0 }}

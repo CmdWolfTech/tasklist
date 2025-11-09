@@ -1,8 +1,44 @@
 {{ define "main" }}
 <article class="blog-post">
-  {{ with .Params.cover }}
+  {{ $pageImage := .Params.image }}
+  {{ $heroImage := "" }}
+  {{ $heroAlt := .Title }}
+  {{ $imagesParam := .Params.images }}
+  {{ $imageList := slice }}
+  {{ with $imagesParam }}
+    {{ if or (reflect.IsSlice .) (reflect.IsArray .) }}
+      {{ $imageList = . }}
+    {{ else }}
+      {{ $imageList = slice . }}
+    {{ end }}
+  {{ end }}
+  {{ with $imageList }}
+    {{ $first := index . 0 }}
+    {{ with $first }}
+      {{ $heroImage = . | relURL }}
+    {{ end }}
+  {{ end }}
+  {{ if not $heroImage }}
+    {{ with $pageImage }}
+      {{ if (isString .) }}
+        {{ $heroImage = . | relURL }}
+      {{ else }}
+        {{ with .src | default .image }}
+          {{ $heroImage = . | relURL }}
+        {{ end }}
+        {{ with .alt }}
+          {{ $heroAlt = . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ else if and $pageImage (not (isString $pageImage)) }}
+    {{ with $pageImage.alt }}
+      {{ $heroAlt = . }}
+    {{ end }}
+  {{ end }}
+  {{ if $heroImage }}
   <div class="post-hero">
-    <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+    <img src="{{ $heroImage }}" alt="{{ $heroAlt }}">
   </div>
   {{ end }}
   <header class="post-header">

@@ -6,6 +6,9 @@ tags:
   - sample2
   - introduction
 author: member-1
+image:
+  src: /img/member-1.png
+  alt: "Author portrait"
 ---
 
 This is the first blog post.
