@@ -5,6 +5,7 @@ defaultContentLanguage = "ja"
 defaultContentLanguageInSubdir = true
 enableGitInfo = true
 enableRobotsTXT = true
+summaryLength = 70
 theme = "tasklist"
 
 [outputs]
@@ -16,6 +17,7 @@ theme = "tasklist"
   filename = "sitemap.xml"
 
 [params]
+  summaryMaxLength = 100
   enableRobotsTXT = true
   description = "sample"
   logo_text = "Logo_text"
