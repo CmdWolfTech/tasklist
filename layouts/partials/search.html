@@ -9,8 +9,7 @@
   document.addEventListener('DOMContentLoaded', async () => {
     const res = await fetch('{{ "index.json" | relLangURL }}');
     const data = await res.json();
-    const normalizeTag = (tag) => (typeof tag === 'string' ? tag.trim().toLowerCase() : '');
-    const excludedTags = new Set({{ (default (slice) .Site.Params.search.excludeTags) | jsonify }}.map(normalizeTag));
+    const excludedTags = new Set({{ (default (slice) .Site.Params.search.excludeTags) | jsonify }});
 
     const fuse = new Fuse(data, {
       keys: ['title', 'summary'],
@@ -35,7 +34,7 @@
     data.forEach(page => {
       if (page.tags) {
         page.tags.forEach(tag => {
-          if (!excludedTags.has(normalizeTag(tag))) {
+          if (!excludedTags.has(tag)) {
             tags.add(tag);
           }
         });
