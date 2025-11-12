@@ -9,7 +9,14 @@
   document.addEventListener('DOMContentLoaded', async () => {
     const res = await fetch('{{ "index.json" | relLangURL }}');
     const data = await res.json();
-    const excludedTags = new Set({{ (default (slice) .Site.Params.search.excludeTags) | jsonify }});
+    const excludedTags = new Set([
+      {{- $tags := .Site.Params.search.excludeTags -}}
+      {{- if $tags -}}
+        {{- range $i, $tag := $tags -}}
+          {{- if $i }}, {{ end }}"{{ $tag }}"
+        {{- end -}}
+      {{- end -}}
+    ]);
 
     const fuse = new Fuse(data, {
       keys: ['title', 'summary'],

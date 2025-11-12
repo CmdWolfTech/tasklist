@@ -52,7 +52,7 @@ theme = "tasklist"
     image = "profile.png"
 
   [params.search]
-    excludedTags = ["sample", "サンプル"]
+    excludeTags = ["sample", "サンプル"]
 
   [params.blog]
     showDates = true
