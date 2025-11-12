@@ -16,21 +16,21 @@
         {{ range sort $pages "Params.start" }}
         {{ $children := where $pages "Params.parent" .File.BaseFileName }}
         <tr>
-            <td><a href="{{ .RelPermalink }}">{{ .Params.title }}</a></td>
-            <td>{{ (time .Params.start).Format (i18n "dateFormat") }} - {{ (time .Params.end).Format (i18n "dateFormat") }}</td>
-            <td>
+            <td data-label="{{ i18n "Task" }}"><a href="{{ .RelPermalink }}">{{ .Params.title }}</a></td>
+            <td data-label="{{ i18n "Period" }}">{{ (time .Params.start).Format (i18n "dateFormat") }} - {{ (time .Params.end).Format (i18n "dateFormat") }}</td>
+            <td data-label="{{ i18n "Status" }}">
                 <span class="status status-{{ if eq .Params.status "completed" }}completed{{ else if eq .Params.status "in-progress" }}in-progress{{
                     else }}not-started{{ end }}">
                     {{ if eq .Params.status "completed" }}{{ i18n "taskCompleted" }}{{ else if eq .Params.status "in-progress" }}{{ i18n "taskInProgress" }}{{ else }}{{ i18n "taskNotStarted" }}{{ end }}
                 </span>
             </td>
-            <td>{{ .Params.assignee }}</td>
-            <td>
+            <td data-label="{{ i18n "PIC" }}">{{ .Params.assignee }}</td>
+            <td data-label="{{ i18n "Priority" }}">
                 <span class="priority priority-{{ lower .Params.priority }}">
                     {{ if eq .Params.priority "High" }}{{ i18n "priorityHigh" }}{{ else if eq .Params.priority "Medium" }}{{ i18n "priorityMedium" }}{{ else }}{{ i18n "priorityLow" }}{{ end }}
                 </span>
             </td>
-            <td>
+            <td data-label="{{ i18n "ParentTask" }}">
                 {{ with .Params.parent }}
                     {{ $parent := $.CurrentSection.GetPage . }}
                     {{ if $parent }}
@@ -41,7 +41,7 @@
                 {{ else }}-
                 {{ end }}
             </td>
-            <td>
+            <td data-label="{{ i18n "ChildTasks" }}">
                 {{ if gt (len $children) 0 }}
                     <ul>
                         {{ range $children }}
