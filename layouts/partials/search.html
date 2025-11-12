@@ -54,7 +54,13 @@
 
     input.addEventListener('input', () => {
       const query = input.value;
-      const results = fuse.search(query).slice(0, 10).map(r => r.item);
+      const results = fuse.search(query)
+        .map(r => r.item)
+        .filter(item => {
+          if (!item.tags) return true;
+          return item.tags.every(tag => !excludedTags.has(tag));
+        })
+        .slice(0, 10);
       renderResults(results);
     });
   });
