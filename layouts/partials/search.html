@@ -9,6 +9,7 @@
   document.addEventListener('DOMContentLoaded', async () => {
     const res = await fetch('{{ "index.json" | relLangURL }}');
     const data = await res.json();
+    const excludedTags = new Set({{ (default (slice) .Site.Params.search.excludeTags) | jsonify }});
 
     const fuse = new Fuse(data, {
       keys: ['title', 'summary'],
@@ -32,7 +33,11 @@
     const tags = new Set();
     data.forEach(page => {
       if (page.tags) {
-        page.tags.forEach(tag => tags.add(tag));
+        page.tags.forEach(tag => {
+          if (!excludedTags.has(tag)) {
+            tags.add(tag);
+          }
+        });
       }
     });
 

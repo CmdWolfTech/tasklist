@@ -1982,7 +1982,6 @@ select:focus {
   margin: 1.5rem 0;
   overflow-x: auto;
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  border: 1px solid rgba(148, 163, 184, 0.25);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
@@ -2002,7 +2001,6 @@ select:focus {
   font-size: 0.95rem;
   padding: 0.1rem 0.4rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 .rich-content code + code {

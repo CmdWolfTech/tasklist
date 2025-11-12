@@ -51,6 +51,9 @@ theme = "tasklist"
     site = "@your_twitter_id"
     image = "profile.png"
 
+  [params.search]
+    excludeTags = ["sample", "サンプル"]
+
   [params.blog]
     showDates = true
     showTags = true
