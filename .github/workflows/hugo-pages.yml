@@ -14,6 +14,7 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -40,18 +41,11 @@ jobs:
 
       - name: Build
         run: hugo --minify
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: ${{ env.HUGO_VERSION }}
-          extended: true
-
-      - name: Build
-        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Verify build output
+        run: |
+          test -f public/index.html
+          ls -la public | head -n 20
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
