@@ -1,4 +1,4 @@
-baseURL = "https://cmdwolftech.gitlab.io/tasklist/"
+baseURL = "https://cmdwolftech.github.io/tasklist/"
 title = "ProjectBoard"
 buildFuture = true
 defaultContentLanguage = "ja"
